@@ -10,74 +10,78 @@
         List<Driver> drivers = dataManager.LoadDrivers();
         List<User> users = dataManager.LoadUser();
         bool loggedin = false;
+        int userRole = 0;
         while (true)
         {
-        if (loggedin == false)
+            if (loggedin == false)
+            {
+                Console.Clear();
+                Console.WriteLine("         Welcome to Fleet Manager");
+                Console.WriteLine("╔═════════════════════════════════════════╗");
+                Console.WriteLine("║                 LOGIN                   ║");
+                Console.WriteLine("╚═════════════════════════════════════════╝");
+                userRole = UserManagement.Login(users);
+                loggedin = true;
+            }
+            else if (userRole == 1 || userRole == 2)
+            {
+                AdminDisplay();
+            }
+            else if (userRole == 3)
+            {
+                DriverLanding();
+            }
+            else if (userRole == 4)
+            {
+                FinanceLanding();
+            }
+        }
+
+        void FinanceLanding()
         {
             Console.Clear();
-            Console.WriteLine("Welcome to InsertAppName:");
-            Console.WriteLine("1. Login");
-            Console.WriteLine("2. Sign Up");
-            Console.Write("Choose An Option:");
-            string choice = Console.ReadLine();
-            switch (choice)
+            Console.WriteLine("╔═════════════════════════════════════════╗");
+            Console.WriteLine("║           Finance Home Page             ║");
+            Console.WriteLine("╚═════════════════════════════════════════╝");
+        }
+        void DriverLanding()
+        {
+            Console.Clear();
+            Console.WriteLine("╔═════════════════════════════════════════╗");
+            Console.WriteLine("║            Driver Home Page             ║");
+            Console.WriteLine("╚═════════════════════════════════════════╝");
+            Console.WriteLine("1. Reports");
+            Console.WriteLine("0. Exit");
+            Console.Write("Choose an option: ");
+            string option = Console.ReadLine();
+            switch (option)
             {
                 case "1":
-                    UserManagement.Login(users);
-                    loggedin = true;
+                    DisplayReports();
                     break;
-                case "2":
-                    UserManagement.CreateUser(users);
+                case "0":
+                    loggedin = false;
                     break;
                 default:
-                    Console.WriteLine("Invalid Choice. Please Try Agian!");
+                    Console.WriteLine("Invalid option. Please try again.");
                     break;
             }
         }
-        else
-        {
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine("Fleet Management System");
-                Console.WriteLine("1. Admin");
-                Console.WriteLine("2. Log Trip");
-                Console.WriteLine("3. Reports");
-                Console.WriteLine("0. Exit");
-                Console.Write("Choose an option: ");
-
-                string option = Console.ReadLine();
-
-                switch (option)
-                {
-                    case "1":
-                        AdminDisplay();
-                        break;
-                    case "2":
-                        LogTrip(vehicles, trips, dataManager);
-                        break;
-                    case "3":
-                        DisplayReports();
-                        break;
-                    case "0":
-                        return;
-                    default:
-                        Console.WriteLine("Invalid option. Please try again.");
-                        break;
-                }
-            }
-        } }
 
         void AdminDisplay()
         {
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("ADMIN:");
+                Console.WriteLine("╔═════════════════════════════════════════╗");
+                Console.WriteLine("║              Admin Home Page            ║");
+                Console.WriteLine("╚═════════════════════════════════════════╝");
                 Console.WriteLine("1. Add Vehicle");
                 Console.WriteLine("2. Add Driver");
-                Console.WriteLine("3. Remove Vehicle");
-                Console.WriteLine("4. Remove Driver");
+                Console.WriteLine("3. Add User");
+                Console.WriteLine("4. Remove Vehicle");
+                Console.WriteLine("5. Remove Driver");
+                Console.WriteLine("6. Remove Driver");
                 Console.WriteLine("0. Exit");
                 Console.Write("Choose an option: ");
 
@@ -88,9 +92,12 @@
 
                     case "2": AddDriver(drivers, dataManager); break;
 
-                    case "3": vehicles = Admin.RemoveVehicle(vehicles); break;
+                    case "3": UserManagement.CreateUser(users); break;
 
-                    case "4": drivers = Admin.RemoveDriver(drivers); break;
+                    case "4": vehicles = Admin.RemoveVehicle(vehicles); break;
+
+                    case "5": drivers = Admin.RemoveDriver(drivers); break;
+                    case "6": break;
 
                     case "0": return;
 

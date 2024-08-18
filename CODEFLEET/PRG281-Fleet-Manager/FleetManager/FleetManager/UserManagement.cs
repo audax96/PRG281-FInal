@@ -1,8 +1,10 @@
+using System.Numerics;
+
 public class UserManagement
 {
     public static DataManager dataManager = new();
 
-    public static void Login(List<User> users)
+    public static int Login(List<User> users)
     {
         bool valid = false;
         while (!valid)
@@ -20,8 +22,7 @@ public class UserManagement
                         Console.WriteLine("\n=============================================\nSuccessful Login!! Press Any Key To Continue: ");
                         Console.ReadKey();
                         valid = true;
-                        break;
-
+                        return user.Role;
                     }
                 }
             }
@@ -30,6 +31,7 @@ public class UserManagement
                 Console.WriteLine("\n=============================\nInvalid Email or Password. \n=============================\nPlease try agian:");
             }
         }
+        return 0;
     }
 
     public static void CreateUser(List<User> users)
@@ -40,13 +42,13 @@ public class UserManagement
         string name = Console.ReadLine();
         Console.Write("Surname: ");
         string surname = Console.ReadLine();
-        Console.Write("Role (Admin, Owner, Driver, Finance): ");
-        string role = Console.ReadLine();
+        Console.Write("Role (\n1. Owner, \n2. Admin, \n3. Driver, \n4. Finance): ");
+        int role= Int32.Parse(Console.ReadLine());
         Console.Write("Email: ");
         string email = Console.ReadLine();
         Console.Write("Password: ");
         string password = GetPassword();
-        if (!id.Any() || !name.Any() || !surname.Any() || !role.Any() || !email.Any() || !password.Any())
+        if (!id.Any() || !name.Any() || !surname.Any() || role>4 || !email.Any() || !password.Any())
         {
             Console.WriteLine("not all fields are filled in!");
             Console.ReadKey();
@@ -66,6 +68,11 @@ public class UserManagement
         Console.WriteLine("\n=============================\n User added successfully!");
         Console.ReadKey();
 
+
+    }
+
+    public static void RemoveDriver()
+    {
 
     }
 
