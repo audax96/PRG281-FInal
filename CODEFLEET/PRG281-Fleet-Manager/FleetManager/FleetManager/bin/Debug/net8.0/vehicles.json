@@ -1,37 +1,75 @@
 [
-  {
-    "VehicleId": 3,
-    "VehicleLicence": "DRT 954 L",
-    "Model": "Focus",
-    "Year": 2015,
-    "FuelType": "Petrol",
-    "OdometerReading": 83245
-  },
-  {
-    "VehicleId": 4,
-    "VehicleLicence": "DRT 954 L",
-    "Make": "Ford",
-    "Model": "Focus",
-    "Year": 2015,
-    "FuelType": "Petrol",
-    "OdometerReading": 83300
-  },
-  {
-    "VehicleId": 5,
-    "VehicleLicence": "DRT 954 L",
-    "Make": "Ford",
-    "Model": "Focus",
-    "Year": 2015,
-    "FuelType": "Petrol",
-    "OdometerReading": 85000
-  },
-  {
-    "VehicleId": 22,
-    "VehicleLicence": "DRT 954 L",
-    "Make": "Audi",
-    "Model": "Truck",
-    "Year": 2050,
-    "FuelType": "Diesel",
-    "OdometerReading": 11000
-  }
-]
+    {
+      "VehicleId": 1,
+      "VehicleLicence": "DCT 685 L",
+      "Make": "Toyota",
+      "Model": "Fortuner",
+      "Year": 2015,
+      "FuelType": "Petrol",
+      "OdometerReading": 163854
+    },
+    {
+      "VehicleId": 2,
+      "VehicleLicence": "DSY 477 GP",
+      "Make": "Ford",
+      "Model": "Mustang",
+      "Year": 2019,
+      "FuelType": "Petrol",
+      "OdometerReading": 70652
+    },
+    {
+      "VehicleId": 3,
+      "VehicleLicence": "GFT 956 NW",
+      "Make": "Toyota",
+      "Model": "Hilux",
+      "Year": 2022,
+      "FuelType": "Diesel",
+      "OdometerReading": 38950
+    },
+    {
+      "VehicleId": 4,
+      "VehicleLicence": "FVG 234 MP",
+      "Make": "Nissan",
+      "Model": "Navara",
+      "Year": 2018,
+      "FuelType": "Diesel",
+      "OdometerReading": 98213
+    },
+    {
+      "VehicleId": 5,
+      "VehicleLicence": "HST 123 EC",
+      "Make": "Volkswagen",
+      "Model": "Amarok",
+      "Year": 2021,
+      "FuelType": "Diesel",
+      "OdometerReading": 45678
+    },
+    {
+      "VehicleId": 6,
+      "VehicleLicence": "BPL 789 KZ",
+      "Make": "Isuzu",
+      "Model": "D-Max",
+      "Year": 2020,
+      "FuelType": "Diesel",
+      "OdometerReading": 63421
+    },
+    {
+      "VehicleId": 7,
+      "VehicleLicence": "NRD 563 GP",
+      "Make": "Ford",
+      "Model": "Ranger",
+      "Year": 2017,
+      "FuelType": "Diesel",
+      "OdometerReading": 120345
+    },
+    {
+      "VehicleId": 8,
+      "VehicleLicence": "KLM 452 FS",
+      "Make": "Toyota",
+      "Model": "Land Cruiser",
+      "Year": 2016,
+      "FuelType": "Diesel",
+      "OdometerReading": 158932
+    }
+  ]
+  

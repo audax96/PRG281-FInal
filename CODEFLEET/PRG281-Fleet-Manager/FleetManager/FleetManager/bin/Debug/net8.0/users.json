@@ -20,12 +20,53 @@
     "Active": false
   },
   {
-    "UserID": "041321312311",
-    "Name": "LLLLLLEweLLLLLLLyn",
-    "Surname": "FFFFFourie",
-    "Email": "male@mail.com",
+    "UserNo": 3,
+    "UserID": "9211050032085",
+    "Name": "Sarah",
+    "Surname": "Smith",
+    "Email": "sarah.smith@example.com",
+    "Role": 2,
+    "Password": "K7jSH7pNgPQ3sMV4JLQc6A==",
+    "Active": true
+  },
+  {
+    "UserNo": 4,
+    "UserID": "8506195072087",
+    "Name": "John",
+    "Surname": "Doe",
+    "Email": "john.doe@example.com",
     "Role": 3,
-    "Password": "tmcrlyWVgO/ANL4vgSjBPA==",
+    "Password": "Y9oLQ8A3kTNV5gKH1oSdBQ==",
+    "Active": true
+  },
+  {
+    "UserNo": 5,
+    "UserID": "9903045092089",
+    "Name": "Lara",
+    "Surname": "Croft",
+    "Email": "lara.croft@example.com",
+    "Role": 1,
+    "Password": "V8uPT9xVJFNJg3CMkUzRbQ==",
+    "Active": false
+  },
+  {
+    "UserNo": 6,
+    "UserID": "9807225092083",
+    "Name": "Bruce",
+    "Surname": "Wayne",
+    "Email": "bruce.wayne@example.com",
+    "Role": 3,
+    "Password": "D5eWN3oKPMHT9tBC1Jp7gQ==",
+    "Active": true
+  },
+  {
+    "UserNo": 7,
+    "UserID": "9403150072086",
+    "Name": "Clark",
+    "Surname": "Kent",
+    "Email": "clark.kent@example.com",
+    "Role": 2,
+    "Password": "E3fZP7uHJQMP4kDL2QsVoA==",
     "Active": true
   }
 ]
