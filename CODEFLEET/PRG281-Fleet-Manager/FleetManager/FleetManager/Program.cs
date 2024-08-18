@@ -12,61 +12,62 @@
         bool loggedin = false;
         while (true)
         {
-        if (loggedin == false)
-        {
-            Console.Clear();
-            Console.WriteLine("Welcome to InsertAppName:");
-            Console.WriteLine("1. Login");
-            Console.WriteLine("2. Sign Up");
-            Console.Write("Choose An Option:");
-            string choice = Console.ReadLine();
-            switch (choice)
-            {
-                case "1":
-                    UserManagement.Login(users);
-                    loggedin = true;
-                    break;
-                case "2":
-                    UserManagement.CreateUser(users);
-                    break;
-                default:
-                    Console.WriteLine("Invalid Choice. Please Try Agian!");
-                    break;
-            }
-        }
-        else
-        {
-            while (true)
+            if (loggedin == false)
             {
                 Console.Clear();
-                Console.WriteLine("Fleet Management System");
-                Console.WriteLine("1. Admin");
-                Console.WriteLine("2. Log Trip");
-                Console.WriteLine("3. Reports");
-                Console.WriteLine("0. Exit");
-                Console.Write("Choose an option: ");
-
-                string option = Console.ReadLine();
-
-                switch (option)
+                Console.WriteLine("Welcome to InsertAppName:");
+                Console.WriteLine("1. Login");
+                Console.WriteLine("2. Sign Up");
+                Console.Write("Choose An Option:");
+                string choice = Console.ReadLine();
+                switch (choice)
                 {
                     case "1":
-                        AdminDisplay();
+                        UserManagement.Login(users);
+                        loggedin = true;
                         break;
                     case "2":
-                        LogTrip(vehicles, trips, dataManager);
+                        UserManagement.CreateUser(users);
                         break;
-                    case "3":
-                        DisplayReports();
-                        break;
-                    case "0":
-                        return;
                     default:
-                        Console.WriteLine("Invalid option. Please try again.");
+                        Console.WriteLine("Invalid Choice. Please Try Agian!");
                         break;
                 }
             }
-        } }
+            else
+            {
+                while (true)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Fleet Management System");
+                    Console.WriteLine("1. Admin");
+                    Console.WriteLine("2. Log Trip");
+                    Console.WriteLine("3. Reports");
+                    Console.WriteLine("0. Exit");
+                    Console.Write("Choose an option: ");
+
+                    string option = Console.ReadLine();
+
+                    switch (option)
+                    {
+                        case "1":
+                            AdminDisplay();
+                            break;
+                        case "2":
+                            LogTrip(vehicles, trips, dataManager);
+                            break;
+                        case "3":
+                            DisplayReports();
+                            break;
+                        case "0":
+                            return;
+                        default:
+                            Console.WriteLine("Invalid option. Please try again.");
+                            break;
+                    }
+                }
+            }
+        }
 
         void AdminDisplay()
         {
@@ -136,8 +137,8 @@
 
         void AddVehicle(List<Vehicle> vehicles, DataManager dataManager)
         {
-            Console.WriteLine("Enter Vehicle ID:");
-            int vehicleId = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Vehicle License No:");
+            string vehicleLicenceNo = Console.ReadLine();
 
             Console.WriteLine("Enter Make:");
             string make = Console.ReadLine();
@@ -154,14 +155,23 @@
             Console.WriteLine("Enter Odometer Reading:");
             double odometer = double.Parse(Console.ReadLine());
 
-            Vehicle vehicle = new Vehicle
+            int lastVehicleId = 0;
+            if (vehicles.Count > 0)
             {
-                VehicleId = vehicleId,
+                Vehicle lastVehicle = vehicles.Last();
+                lastVehicleId = lastVehicle.VehicleId;
+            }
+
+            Vehicle vehicle = new()
+            {
+                VehicleId = lastVehicleId + 1,
+                VehicleLicence = vehicleLicenceNo,
                 Make = make,
                 Model = model,
                 Year = year,
                 FuelType = fuelType,
-                OdometerReading = odometer
+                OdometerReading = odometer,
+
             };
 
             vehicles.Add(vehicle);
@@ -314,10 +324,16 @@
             Console.WriteLine("Enter the Price per Liter (in your currency):");
             double pricePerLiter = double.Parse(Console.ReadLine());
 
+            int lastTripId = 0;
+            if (trips.Count > 0)
+            {
+                Trip lastTrip = trips.Last();
+                lastTripId = lastTrip.VehicleId;
+            }
             // Create a new Trip object
             Trip trip = new Trip
             {
-                TripId = Guid.NewGuid().ToString(),
+                TripId = lastTripId + 1,
                 VehicleId = selectedVehicle.VehicleId,
                 DriverNumber = driverNumber,
                 StartOdometer = startOdometer,
