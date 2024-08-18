@@ -103,7 +103,7 @@ public class UserManagement
         Console.WriteLine("╚═════════════════════════════════════════╝");
         foreach (var user in users)
         {
-            Console.WriteLine($"|| User ID: {user.UserID} || User First Name: {user.Name} || User Surname: {user.Surname}");
+            Console.WriteLine($"|| User Number: {user.UserNo} || User Name: {user.Name}  {user.Surname}||");
         }
 
         Console.Write("Choose A user by ID: ");
