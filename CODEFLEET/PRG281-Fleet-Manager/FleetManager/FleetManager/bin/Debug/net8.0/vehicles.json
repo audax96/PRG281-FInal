@@ -1,1 +1,37 @@
-[{"VehicleId":3,"Make":"Ford","Model":"Focus","Year":2015,"FuelType":"Petrol","OdometerReading":83245},{"VehicleId":4,"Make":"Ford","Model":"Focus","Year":2015,"FuelType":"Petrol","OdometerReading":83300},{"VehicleId":5,"Make":"Ford","Model":"Focus","Year":2015,"FuelType":"Petrol","OdometerReading":85000},{"VehicleId":22,"Make":"Audi","Model":"Truck","Year":2050,"FuelType":"Diesel","OdometerReading":11000}]
+[
+  {
+    "VehicleId": 3,
+    "VehicleLicence": "DRT 954 L",
+    "Model": "Focus",
+    "Year": 2015,
+    "FuelType": "Petrol",
+    "OdometerReading": 83245
+  },
+  {
+    "VehicleId": 4,
+    "VehicleLicence": "DRT 954 L",
+    "Make": "Ford",
+    "Model": "Focus",
+    "Year": 2015,
+    "FuelType": "Petrol",
+    "OdometerReading": 83300
+  },
+  {
+    "VehicleId": 5,
+    "VehicleLicence": "DRT 954 L",
+    "Make": "Ford",
+    "Model": "Focus",
+    "Year": 2015,
+    "FuelType": "Petrol",
+    "OdometerReading": 85000
+  },
+  {
+    "VehicleId": 22,
+    "VehicleLicence": "DRT 954 L",
+    "Make": "Audi",
+    "Model": "Truck",
+    "Year": 2050,
+    "FuelType": "Diesel",
+    "OdometerReading": 11000
+  }
+]
