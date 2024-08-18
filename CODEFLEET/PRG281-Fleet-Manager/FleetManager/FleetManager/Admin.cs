@@ -23,22 +23,19 @@ public class Admin
             }
             else
             {
-
                 foreach (var driver in drivers)
                 {
                     if (driverNumber == driver.DriverNumber)
                     {
-                        drivers.Remove(driver);
+                        driver.Active = false;
                         dataManager.SaveDrivers(drivers);
                         Console.WriteLine("Driver Removed Successfully");
                         Console.ReadKey();
                         return drivers;
                     }
                 }
-
                 Console.WriteLine("Invalid Driver Number!");
                 Console.ReadKey();
-
             }
 
         }
@@ -66,10 +63,10 @@ public class Admin
             else
             {
 
-              
+
                 foreach (var vehicle in vehicles)
                 {
-                   
+
                     if (vehicleId == vehicle.VehicleId)
                     {
                         vehicles.Remove(vehicle);
@@ -79,7 +76,7 @@ public class Admin
                         return vehicles;
                     }
                 }
-                
+
                 Console.WriteLine("Invalid Vehicle Number!");
                 Console.ReadKey();
             }

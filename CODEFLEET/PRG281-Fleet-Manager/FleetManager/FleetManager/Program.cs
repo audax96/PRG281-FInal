@@ -98,7 +98,7 @@
 
                     case "5": drivers = Admin.RemoveDriver(drivers); break;
 
-                    case "6": users = UserManagement.DeactivateUser(users);break;
+                    case "6": users = UserManagement.DeactivateUser(users); break;
 
                     case "0": return;
 
@@ -236,6 +236,7 @@
                 Surname = surname,
                 DOB = DateTime.Parse(dob),
                 Gender = driverGender,
+                Active = true,
             };
             drivers.Add(driver);
             dataManager.SaveDrivers(drivers);

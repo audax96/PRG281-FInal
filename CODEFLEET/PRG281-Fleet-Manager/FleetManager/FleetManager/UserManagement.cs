@@ -71,12 +71,12 @@ public class UserManagement
         if (users.Count > 0)
         {
             User lastUser = users.Last();
-            lastUserNo= lastUser.UserNo;
+            lastUserNo = lastUser.UserNo;
         }
 
         User user = new User
         {
-            UserNo = lastUserNo+1,
+            UserNo = lastUserNo + 1,
             UserID = id,
             Name = name,
             Surname = surname,
@@ -107,16 +107,24 @@ public class UserManagement
         }
 
         Console.Write("Choose A user by ID: ");
-        string id = Console.ReadLine();
-        foreach (var user in users)
+        string input = Console.ReadLine();
+        if (!int.TryParse(input, out int id))
         {
-            if (user.UserID == id)
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+            Console.ReadKey();
+        }
+        else
+        {
+            foreach (var user in users)
             {
-                user.Active = false;
-                dataManager.SaveUser(users);
-                Console.WriteLine("User Successfully Deactivated");
-                Console.ReadKey();
-                break;
+                if (user.UserNo == id)
+                {
+                    user.Active = false;
+                    dataManager.SaveUser(users);
+                    Console.WriteLine("User Successfully Deactivated");
+                    Console.ReadKey();
+                    break;
+                }
             }
         }
         return users;
