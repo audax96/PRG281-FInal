@@ -13,22 +13,36 @@ public class UserManagement
             string email = Console.ReadLine();
             Console.Write("Password: ");
             string password = GetPassword();
+            bool active = true;
             foreach (var user in users)
             {
                 if (email == user.Email)
                 {
                     if (password == user.Password)
                     {
+                        if (user.Active == true)
+                        {
                         Console.WriteLine("\n=============================================\nSuccessful Login!! Press Any Key To Continue: ");
                         Console.ReadKey();
                         valid = true;
                         return user.Role;
+                        }
+                        else
+                        {  
+                            active = false;  
+                        }
                     }
                 }
             }
-            if (valid == false)
+            if (active == false)
+            {
+                 Console.WriteLine("\n=============================\nUser Is Deactivated!");
+                 Console.ReadKey();
+            }
+            else if (valid == false)
             {
                 Console.WriteLine("\n=============================\nInvalid Email or Password. \n=============================\nPlease try agian:");
+                Console.ReadKey();
             }
         }
         return 0;
@@ -43,12 +57,12 @@ public class UserManagement
         Console.Write("Surname: ");
         string surname = Console.ReadLine();
         Console.Write("Role (\n1. Owner, \n2. Admin, \n3. Driver, \n4. Finance): ");
-        int role= Int32.Parse(Console.ReadLine());
+        int role = Int32.Parse(Console.ReadLine());
         Console.Write("Email: ");
         string email = Console.ReadLine();
         Console.Write("Password: ");
         string password = GetPassword();
-        if (!id.Any() || !name.Any() || !surname.Any() || role>4 || !email.Any() || !password.Any())
+        if (!id.Any() || !name.Any() || !surname.Any() || role > 4 || !email.Any() || !password.Any())
         {
             Console.WriteLine("not all fields are filled in!");
             Console.ReadKey();
@@ -62,6 +76,7 @@ public class UserManagement
             Role = role,
             Email = email,
             Password = password,
+            Active = true,
         };
         users.Add(user);
         dataManager.SaveUser(users);
@@ -71,8 +86,33 @@ public class UserManagement
 
     }
 
-    public static void RemoveDriver()
+    public static List<User> DeactivateUser(List<User> users)
     {
+        DataManager dataManager = new DataManager();
+        List<Vehicle> vehicles = dataManager.LoadVehicles();
+        Console.Clear();
+        Console.WriteLine("╔═════════════════════════════════════════╗");
+        Console.WriteLine("║              Deactivate User            ║");
+        Console.WriteLine("╚═════════════════════════════════════════╝");
+        foreach (var user in users)
+        {
+            Console.WriteLine($"|| User ID: {user.UserID} || User First Name: {user.Name} || User Surname: {user.Surname}");
+        }
+
+        Console.Write("Choose A user by ID: ");
+        string id = Console.ReadLine();
+        foreach (var user in users)
+        {
+            if (user.UserID == id)
+            {
+                user.Active = false;
+                dataManager.SaveUser(users);
+                Console.WriteLine("User Successfully Deactivated");
+                Console.ReadKey();
+                break;
+            }
+        }
+        return users;
 
     }
 
@@ -100,4 +140,5 @@ public class UserManagement
 
         return password;
     }
+
 }
