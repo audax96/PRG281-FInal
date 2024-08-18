@@ -4,7 +4,7 @@ public class Reports
 {
 
 
-    public void ReportsTrips(List<Driver> drivers, List<Trip> trips)
+    public static void ReportsTrips(List<Driver> drivers, List<Trip> trips)
     {
 
         while (true)
@@ -111,11 +111,29 @@ public class Reports
     }
     public static void GenerasteDailyReportTrips(List<Driver> drivers, List<Trip> trips)
     {
-        Console.WriteLine("Trips For Today:");
+        DateTime today = DateTime.Today;
+        Console.Clear();
+        Console.WriteLine("╔════════════════════════════════════════╗");
+        Console.WriteLine($"║  DAILY REPORT FOR TRIPS ({today:dd/MM/yyyy}):  ║");
+        Console.WriteLine("╚════════════════════════════════════════╝");
         foreach (var trip in trips)
         {
+            Console.WriteLine("  Trip ID  |  Vehicle ID  |       Driver      | Distance  |  Fuel Efficiency ");
             if (trip.Date == DateTime.Today)
             {
+                string DriverFullName = "";
+                foreach (var driver in drivers)
+                {
+                    if (driver.DriverNumber == trip.DriverNumber)
+                    {
+                        DriverFullName = driver.DisplayFullname();
+                    }
+                }
+
+
+                Console.WriteLine($"  {trip.TripId,6}   |  {trip.VehicleId,5}       |  {DriverFullName,15}  |  {trip.CalculateDistance(),5} km  |    {trip.FuelEfficiency:00.00} L/km");
+
+
                 string driverFullname = "";
                 foreach (var driver in drivers)
                 {
@@ -158,7 +176,7 @@ public class Reports
         Console.ReadKey();
     }
 
-    async public void GenerateMonthlyReportTrips(List<Driver> drivers, List<Trip> trips)
+    async public static void GenerateMonthlyReportTrips(List<Driver> drivers, List<Trip> trips)
 
     {
 
@@ -333,48 +351,48 @@ public class Reports
 
         foreach (var driver in selectedDrivers)
         {
-         if (driver.Active = true)
-         {
-            if (!isFirstDriver)
+            if (driver.Active = true)
             {
-                Console.WriteLine("==========================================================");
-            }
-            isFirstDriver = false;
-
-            var driverTrips = trips.Where(t => t.DriverNumber == driver.DriverNumber && t.Date.Month == chosenMonth && t.Date.Year == DateTime.Today.Year).ToList();
-
-            if (driverTrips.Count != 0)
-            {
-                double totalDistance = 0;
-                double totalFuelEfficiency = 0;
-                int tripCount = 0;
-
-                Console.WriteLine($"{driver.DisplayFullname().ToUpper()}:\n");
-
-                Console.WriteLine("  Trip ID  |  Vehicle ID  |  Distance  |  Fuel Efficiency ");
-                foreach (var trip in driverTrips)
+                if (!isFirstDriver)
                 {
-                    Console.WriteLine($"  {trip.TripId,6}   |  {trip.VehicleId,5}       |  {trip.CalculateDistance(),5} km  |    {trip.FuelEfficiency:00.00} L/km");
-                    totalDistance += trip.Distance;
-                    totalFuelEfficiency += trip.FuelEfficiency;
-                    tripCount++;
+                    Console.WriteLine("==========================================================");
                 }
-                Console.WriteLine("     ╔══════════════════════════════════════════╗");
-                Console.WriteLine("     ║ SUMMARY:                                 ║");
-                Console.WriteLine($"     ║    Total Distance: {totalDistance:0000.00} km            ║");
-                Console.WriteLine($"     ║    Average Fuel Efficiency: {totalFuelEfficiency / tripCount:00.00} L/km   ║");
-                Console.WriteLine("     ╚══════════════════════════════════════════╝");
+                isFirstDriver = false;
+
+                var driverTrips = trips.Where(t => t.DriverNumber == driver.DriverNumber && t.Date.Month == chosenMonth && t.Date.Year == DateTime.Today.Year).ToList();
+
+                if (driverTrips.Count != 0)
+                {
+                    double totalDistance = 0;
+                    double totalFuelEfficiency = 0;
+                    int tripCount = 0;
+
+                    Console.WriteLine($"{driver.DisplayFullname().ToUpper()}:\n");
+
+                    Console.WriteLine("  Trip ID  |  Vehicle ID  |  Distance  |  Fuel Efficiency ");
+                    foreach (var trip in driverTrips)
+                    {
+                        Console.WriteLine($"  {trip.TripId,6}   |  {trip.VehicleId,5}       |  {trip.CalculateDistance(),5} km  |    {trip.FuelEfficiency:00.00} L/km");
+                        totalDistance += trip.Distance;
+                        totalFuelEfficiency += trip.FuelEfficiency;
+                        tripCount++;
+                    }
+                    Console.WriteLine("     ╔══════════════════════════════════════════╗");
+                    Console.WriteLine("     ║ SUMMARY:                                 ║");
+                    Console.WriteLine($"     ║    Total Distance: {totalDistance:0000.00} km            ║");
+                    Console.WriteLine($"     ║    Average Fuel Efficiency: {totalFuelEfficiency / tripCount:00.00} L/km   ║");
+                    Console.WriteLine("     ╚══════════════════════════════════════════╝");
+                }
+                else
+                {
+                    Console.WriteLine($"{driver.DisplayFullname()}:");
+                    Console.WriteLine("  No Trips in selected timeframe\n");
+                }
             }
             else
             {
-                Console.WriteLine($"{driver.DisplayFullname()}:");
-                Console.WriteLine("  No Trips in selected timeframe\n");
+                continue;
             }
-         }
-         else
-         {
-            continue;
-         }
         }
         Console.WriteLine("Press Any Key To Continue:");
         Console.ReadKey();
