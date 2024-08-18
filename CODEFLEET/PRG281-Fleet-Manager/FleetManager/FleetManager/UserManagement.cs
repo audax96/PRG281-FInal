@@ -98,12 +98,26 @@ public class UserManagement
         DataManager dataManager = new DataManager();
         List<Vehicle> vehicles = dataManager.LoadVehicles();
         Console.Clear();
+
         Console.WriteLine("╔═════════════════════════════════════════╗");
-        Console.WriteLine("║              Deactivate User            ║");
+        Console.WriteLine("║               Activate Users            ║");
         Console.WriteLine("╚═════════════════════════════════════════╝");
         foreach (var user in users)
         {
-            Console.WriteLine($"|| User Number: {user.UserNo} || User Name: {user.Name}  {user.Surname}||");
+            if (user.Active == true)
+            {
+               Console.WriteLine($"|| User Number: {user.UserNo} || User Name: {user.Name}  {user.Surname}||");  
+            }
+        }
+        Console.WriteLine("╔═════════════════════════════════════════╗");
+        Console.WriteLine("║             Inactivate Users            ║");
+        Console.WriteLine("╚═════════════════════════════════════════╝");
+        foreach (var user in users)
+        {
+            if (user.Active == false)
+            {
+               Console.WriteLine($"|| User Number: {user.UserNo} || User Name: {user.Name}  {user.Surname}||"); 
+            }
         }
 
         Console.Write("Choose A user by ID: ");
@@ -115,15 +129,27 @@ public class UserManagement
         }
         else
         {
+
             foreach (var user in users)
             {
                 if (user.UserNo == id)
                 {
-                    user.Active = false;
-                    dataManager.SaveUser(users);
-                    Console.WriteLine("User Successfully Deactivated");
-                    Console.ReadKey();
-                    break;
+                    if (user.Active == true)
+                    {
+                        user.Active = false;
+                        dataManager.SaveUser(users);
+                        Console.WriteLine("User Successfully Deactivated");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else
+                    {
+                        user.Active = true;
+                        dataManager.SaveUser(users);
+                        Console.WriteLine("User Successfully Deactivated");
+                        Console.ReadKey();
+                        break;
+                    }
                 }
             }
         }

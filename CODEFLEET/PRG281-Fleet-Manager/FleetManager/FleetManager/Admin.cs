@@ -129,4 +129,108 @@ public class Admin
         }
     }
 
+     public static void AddVehicle(List<Vehicle> vehicles, DataManager dataManager)
+        {
+            Console.WriteLine("Enter Vehicle License No:");
+            string vehicleLicenceNo = Console.ReadLine();
+
+            Console.WriteLine("Enter Make:");
+            string make = Console.ReadLine();
+
+            Console.WriteLine("Enter Model:");
+            string model = Console.ReadLine();
+
+            Console.WriteLine("Enter Year:");
+            int year = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Fuel Type:");
+            string fuelType = Console.ReadLine();
+
+            Console.WriteLine("Enter Odometer Reading:");
+            double odometer = double.Parse(Console.ReadLine());
+
+            int lastVehicleId = 0;
+            if (vehicles.Count > 0)
+            {
+                Vehicle lastVehicle = vehicles.Last();
+                lastVehicleId = lastVehicle.VehicleId;
+            }
+
+            Vehicle vehicle = new()
+            {
+                VehicleId = lastVehicleId + 1,
+                VehicleLicence = vehicleLicenceNo,
+                Make = make,
+                Model = model,
+                Year = year,
+                FuelType = fuelType,
+                OdometerReading = odometer,
+
+            };
+
+            vehicles.Add(vehicle);
+            dataManager.SaveVehicles(vehicles);
+            Console.WriteLine("Vehicle added successfully!");
+            Console.ReadKey();
+        }
+
+        public static void AddDriver(List<Driver> drivers, DataManager dataManager)
+        {
+            string driverGender = "";
+            bool valid = false;
+            Console.Write("Enter Driver's ID Number: ");
+            string driverid = Console.ReadLine();
+            Console.Write("Enter Driver's Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Enter Driver's Surname: ");
+            string surname = Console.ReadLine();
+            Console.Write("Enter Driver's Date of Birth(dd/mm/yyyy): ");
+            string dob = Console.ReadLine();
+            while (!valid)
+            {
+                Console.WriteLine("Enter Driver's Gender:");
+                Console.WriteLine("1: Male");
+                Console.WriteLine("2: Female");
+                string ans = Console.ReadLine();
+                switch (ans)
+                {
+                    case "1":
+                        driverGender = "Male";
+                        valid = true;
+                        break;
+                    case "2":
+                        driverGender = "Female";
+                        valid = true;
+                        break;
+                    default:
+                        Console.WriteLine("Please Enter A Valid Option! Press Anykey To Proceed.");
+                        Console.ReadKey();
+                        break;
+                }
+            }
+
+            int lastDriverNo = 0;
+            if (drivers.Count > 0)
+            {
+                Driver LastDriver = drivers.Last();
+                lastDriverNo = LastDriver.DriverNumber;
+            }
+            Driver driver = new Driver
+            {
+                DriverNumber = lastDriverNo + 1,
+                DriverID = driverid,
+                Name = name,
+                Surname = surname,
+                DOB = DateTime.Parse(dob),
+                Gender = driverGender,
+                Active = true,
+            };
+            drivers.Add(driver);
+            dataManager.SaveDrivers(drivers);
+            Console.WriteLine("Driver added successfully!");
+            Console.ReadKey();
+
+
+        }
+
 }

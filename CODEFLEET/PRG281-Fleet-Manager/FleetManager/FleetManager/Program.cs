@@ -25,25 +25,18 @@
             }
             else if (userRole == 1 || userRole == 2)
             {
-                AdminDisplay();
+                loggedin= LandingPages.AdminLanding();
             }
             else if (userRole == 3)
             {
-                DriverLanding();
+                loggedin = LandingPages.DriverLanding();
             }
             else if (userRole == 4)
             {
-                FinanceLanding();
+                LandingPages.FinanceLanding();
             }
         }
 
-        void FinanceLanding()
-        {
-            Console.Clear();
-            Console.WriteLine("╔═════════════════════════════════════════╗");
-            Console.WriteLine("║           Finance Home Page             ║");
-            Console.WriteLine("╚═════════════════════════════════════════╝");
-        }
         void DriverLanding()
         {
             Console.Clear();
@@ -68,46 +61,9 @@
             }
         }
 
-        void AdminDisplay()
-        {
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine("╔═════════════════════════════════════════╗");
-                Console.WriteLine("║              Admin Home Page            ║");
-                Console.WriteLine("╚═════════════════════════════════════════╝");
-                Console.WriteLine("1. Add Vehicle");
-                Console.WriteLine("2. Add Driver");
-                Console.WriteLine("3. Add User");
-                Console.WriteLine("4. Remove Vehicle");
-                Console.WriteLine("5. Remove Driver");
-                Console.WriteLine("6. Remove Driver");
-                Console.WriteLine("0. Exit");
-                Console.Write("Choose an option: ");
+        
 
-                string option = Console.ReadLine();
-                switch (option)
-                {
-                    case "1": AddVehicle(vehicles, dataManager); break;
-
-                    case "2": AddDriver(drivers, dataManager); break;
-
-                    case "3": UserManagement.CreateUser(users); break;
-
-                    case "4": vehicles = Admin.RemoveVehicle(vehicles); break;
-
-                    case "5": drivers = Admin.RemoveDriver(drivers); break;
-
-                    case "6": users = UserManagement.DeactivateUser(users); break;
-
-                    case "0": return;
-
-                    default:
-                        Console.WriteLine("Invalid option. Please try again.");
-                        break;
-                }
-            }
-        }
+      
 
         void DisplayReports()
         {
@@ -142,109 +98,7 @@
 
         }
 
-        void AddVehicle(List<Vehicle> vehicles, DataManager dataManager)
-        {
-            Console.WriteLine("Enter Vehicle License No:");
-            string vehicleLicenceNo = Console.ReadLine();
-
-            Console.WriteLine("Enter Make:");
-            string make = Console.ReadLine();
-
-            Console.WriteLine("Enter Model:");
-            string model = Console.ReadLine();
-
-            Console.WriteLine("Enter Year:");
-            int year = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter Fuel Type:");
-            string fuelType = Console.ReadLine();
-
-            Console.WriteLine("Enter Odometer Reading:");
-            double odometer = double.Parse(Console.ReadLine());
-
-            int lastVehicleId = 0;
-            if (vehicles.Count > 0)
-            {
-                Vehicle lastVehicle = vehicles.Last();
-                lastVehicleId = lastVehicle.VehicleId;
-            }
-
-            Vehicle vehicle = new()
-            {
-                VehicleId = lastVehicleId + 1,
-                VehicleLicence = vehicleLicenceNo,
-                Make = make,
-                Model = model,
-                Year = year,
-                FuelType = fuelType,
-                OdometerReading = odometer,
-
-            };
-
-            vehicles.Add(vehicle);
-            dataManager.SaveVehicles(vehicles);
-            Console.WriteLine("Vehicle added successfully!");
-            Console.ReadKey();
-        }
-
-        void AddDriver(List<Driver> drivers, DataManager dataManager)
-        {
-            string driverGender = "";
-            bool valid = false;
-            Console.Write("Enter Driver's ID Number: ");
-            string driverid = Console.ReadLine();
-            Console.Write("Enter Driver's Name: ");
-            string name = Console.ReadLine();
-            Console.Write("Enter Driver's Surname: ");
-            string surname = Console.ReadLine();
-            Console.Write("Enter Driver's Date of Birth(dd/mm/yyyy): ");
-            string dob = Console.ReadLine();
-            while (!valid)
-            {
-                Console.WriteLine("Enter Driver's Gender:");
-                Console.WriteLine("1: Male");
-                Console.WriteLine("2: Female");
-                string ans = Console.ReadLine();
-                switch (ans)
-                {
-                    case "1":
-                        driverGender = "Male";
-                        valid = true;
-                        break;
-                    case "2":
-                        driverGender = "Female";
-                        valid = true;
-                        break;
-                    default:
-                        Console.WriteLine("Please Enter A Valid Option! Press Anykey To Proceed.");
-                        Console.ReadKey();
-                        break;
-                }
-            }
-
-            int lastDriverNo = 0;
-            if (drivers.Count > 0)
-            {
-                Driver LastDriver = drivers.Last();
-                lastDriverNo = LastDriver.DriverNumber;
-            }
-            Driver driver = new Driver
-            {
-                DriverNumber = lastDriverNo + 1,
-                DriverID = driverid,
-                Name = name,
-                Surname = surname,
-                DOB = DateTime.Parse(dob),
-                Gender = driverGender,
-                Active = true,
-            };
-            drivers.Add(driver);
-            dataManager.SaveDrivers(drivers);
-            Console.WriteLine("Driver added successfully!");
-            Console.ReadKey();
-
-
-        }
+       
 
         void ViewVehicles(List<Vehicle> vehicles)
         {
