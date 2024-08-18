@@ -1,0 +1,110 @@
+[
+  {
+    "TripId": "00001",
+    "VehicleId": 4,
+    "DriverNumber": 2,
+    "StartOdometer": 83245,
+    "EndOdometer": 83300,
+    "FuelUsed": 5,
+    "FuelEfficiency": 11,
+    "Date": "2024-06-04T00:00:00",
+    "PricePerLiter": 24,
+    "Distance": 55
+  },
+  {
+    "TripId": "00002",
+    "VehicleId": 5,
+    "DriverNumber": 3,
+    "StartOdometer": 83245,
+    "EndOdometer": 84000,
+    "FuelUsed": 60,
+    "FuelEfficiency": 12.583333333333334,
+    "Date": "2024-08-15T00:00:00",
+    "PricePerLiter": 24.15,
+    "Distance": 755
+  },
+  {
+    "TripId": "00003",
+    "VehicleId": 22,
+    "DriverNumber": 7,
+    "StartOdometer": 10200,
+    "EndOdometer": 10500,
+    "FuelUsed": 20,
+    "FuelEfficiency": 15,
+    "Date": "2024-08-16T00:00:00",
+    "PricePerLiter": 23.76,
+    "Distance": 300
+  },
+  {
+    "TripId": "00004",
+    "VehicleId": 5,
+    "DriverNumber": 3,
+    "StartOdometer": 84000,
+    "EndOdometer": 84200,
+    "FuelUsed": 18,
+    "FuelEfficiency": 11.11111111111111,
+    "Date": "2024-08-16T00:00:00",
+    "PricePerLiter": 26.89,
+    "Distance": 200
+  },
+  {
+    "TripId": "00005",
+    "VehicleId": 22,
+    "DriverNumber": 3,
+    "StartOdometer": 10500,
+    "EndOdometer": 10600,
+    "FuelUsed": 15,
+    "FuelEfficiency": 6.666666666666667,
+    "Date": "2024-08-16T00:00:00",
+    "PricePerLiter": 26,
+    "Distance": 100
+  },
+  {
+    "TripId": "00006",
+    "VehicleId": 5,
+    "DriverNumber": 8,
+    "StartOdometer": 84200,
+    "EndOdometer": 84300,
+    "FuelUsed": 16,
+    "FuelEfficiency": 6.25,
+    "Date": "2024-08-16T00:00:00",
+    "PricePerLiter": 24,
+    "Distance": 100
+  },
+  {
+    "TripId": "00007",
+    "VehicleId": 22,
+    "DriverNumber": 4,
+    "StartOdometer": 10600,
+    "EndOdometer": 10900,
+    "FuelUsed": 24,
+    "FuelEfficiency": 12.5,
+    "Date": "2024-08-16T00:00:00",
+    "PricePerLiter": 23,
+    "Distance": 300
+  },
+  {
+    "TripId": "00008",
+    "VehicleId": 22,
+    "DriverNumber": 3,
+    "StartOdometer": 10900,
+    "EndOdometer": 11000,
+    "FuelUsed": 15,
+    "FuelEfficiency": 6.666666666666667,
+    "Date": "2024-08-16T00:00:00",
+    "PricePerLiter": 23,
+    "Distance": 100
+  },
+  {
+    "TripId": "00009",
+    "VehicleId": 5,
+    "DriverNumber": 8,
+    "StartOdometer": 84300,
+    "EndOdometer": 85000,
+    "FuelUsed": 80,
+    "FuelEfficiency": 8.75,
+    "Date": "2024-08-16T00:00:00",
+    "PricePerLiter": 21,
+    "Distance": 700
+  }
+]
