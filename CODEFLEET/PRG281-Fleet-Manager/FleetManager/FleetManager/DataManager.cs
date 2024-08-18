@@ -66,35 +66,30 @@ public class DataManager
             aes.IV = IV;
             ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
 
-            using (MemoryStream ms = new MemoryStream())
+            using MemoryStream ms = new MemoryStream();
+            using (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+            using (StreamWriter sw = new StreamWriter(cs))
             {
-                using (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
-                using (StreamWriter sw = new StreamWriter(cs))
-                {
-                    sw.Write(plainText);
-                }
-                string encrypted = Convert.ToBase64String(ms.ToArray());
-                Console.WriteLine($"Encrypted: {encrypted}"); // Log encrypted data
-                return encrypted;
+                sw.Write(plainText);
             }
+            string encrypted = Convert.ToBase64String(ms.ToArray());
+            return encrypted;
         }
     }
 
     private static string Decrypt(string cipherText)
     {
-        Console.WriteLine($"Decrypting: {cipherText}"); // Log data before decryption
-        using (Aes aes = Aes.Create())
-        {
-            aes.Key = Key;
-            aes.IV = IV;
-            ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
-            using (MemoryStream ms = new MemoryStream(Convert.FromBase64String(cipherText)))
-            using (CryptoStream cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
-            using (StreamReader sr = new StreamReader(cs))
-            {
-                return sr.ReadToEnd();
-            }
+        using Aes aes = Aes.Create();
+        aes.Key = Key;
+        aes.IV = IV;
+        ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+        using (MemoryStream ms = new MemoryStream(Convert.FromBase64String(cipherText)))
+        using (CryptoStream cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
+        using (StreamReader sr = new StreamReader(cs))
+        {
+            return sr.ReadToEnd();
         }
     }
 
