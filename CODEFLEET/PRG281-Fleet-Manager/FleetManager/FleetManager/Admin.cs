@@ -20,7 +20,6 @@ public class Admin
             {
                 Console.WriteLine("Invalid input. Please enter a valid number.");
                 Console.ReadKey();
-
             }
             else
             {
