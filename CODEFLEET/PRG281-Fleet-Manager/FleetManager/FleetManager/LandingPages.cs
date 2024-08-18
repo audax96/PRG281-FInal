@@ -1,14 +1,14 @@
 public class LandingPages
 {
-        static DataManager dataManager = new DataManager();
-        Admin admin = new Admin();
-        static List<Vehicle> vehicles = dataManager.LoadVehicles();
-        static List<Trip> trips = dataManager.LoadTrips();
-        static List<Driver> drivers = dataManager.LoadDrivers();
-        static List<User> users = dataManager.LoadUser();
+    static DataManager dataManager = new DataManager();
+    Admin admin = new Admin();
+    static List<Vehicle> vehicles = dataManager.LoadVehicles();
+    static List<Trip> trips = dataManager.LoadTrips();
+    static List<Driver> drivers = dataManager.LoadDrivers();
+    static List<User> users = dataManager.LoadUser();
 
 
-     public static bool AdminLanding()
+    public static bool AdminLanding()
     {
         Console.Clear();
         Console.WriteLine("╔═════════════════════════════════════════╗");
@@ -26,11 +26,11 @@ public class LandingPages
                 AdminDisplay();
                 return true;
                 break;
-                case "2":
+            case "2":
                 Trip.LogTrip(vehicles, trips, dataManager);
                 return true;
                 break;
-                case "3":
+            case "3":
                 DisplayReports();
                 return true;
                 break;
@@ -44,45 +44,45 @@ public class LandingPages
         }
     }
     public static void AdminDisplay()
+    {
+        while (true)
         {
-            while (true)
+            Console.Clear();
+            Console.WriteLine("╔═════════════════════════════════════════╗");
+            Console.WriteLine("║              Admin Home Page            ║");
+            Console.WriteLine("╚═════════════════════════════════════════╝");
+            Console.WriteLine("1. Add Vehicle");
+            Console.WriteLine("2. Add Driver");
+            Console.WriteLine("3. Add User");
+            Console.WriteLine("4. Remove Vehicle");
+            Console.WriteLine("5. Remove Driver");
+            Console.WriteLine("6. Toggle User Status");
+            Console.WriteLine("0. Exit");
+            Console.Write("Choose an option: ");
+
+            string option = Console.ReadLine();
+            switch (option)
             {
-                Console.Clear();
-                Console.WriteLine("╔═════════════════════════════════════════╗");
-                Console.WriteLine("║              Admin Home Page            ║");
-                Console.WriteLine("╚═════════════════════════════════════════╝");
-                Console.WriteLine("1. Add Vehicle");
-                Console.WriteLine("2. Add Driver");
-                Console.WriteLine("3. Add User");
-                Console.WriteLine("4. Remove Vehicle");
-                Console.WriteLine("5. Remove Driver");
-                Console.WriteLine("6. Toggle User Status");
-                Console.WriteLine("0. Exit");
-                Console.Write("Choose an option: ");
+                case "1": Admin.AddVehicle(vehicles, dataManager); break;
 
-                string option = Console.ReadLine();
-                switch (option)
-                {
-                    case "1": Admin.AddVehicle(vehicles, dataManager); break;
+                case "2": Admin.AddDriver(drivers, dataManager); break;
 
-                    case "2": Admin.AddDriver(drivers, dataManager); break;
+                case "3": UserManagement.CreateUser(users); break;
 
-                    case "3": UserManagement.CreateUser(users); break;
+                case "4": vehicles = Admin.RemoveVehicle(vehicles); break;
 
-                    case "4": vehicles = Admin.RemoveVehicle(vehicles); break;
+                case "5": drivers = Admin.RemoveDriver(drivers); break;
 
-                    case "5": drivers = Admin.RemoveDriver(drivers); break;
+                case "6": users = UserManagement.DeactivateUser(users); break;
 
-                    case "6": users = UserManagement.DeactivateUser(users); break;
+                case "0": return;
 
-                    case "0": return ;
-
-                    default:
-                        Console.WriteLine("Invalid option. Please try again.");
-                        break;
-                }
+                default:
+                    Console.WriteLine("Invalid option. Please try again.");
+                    break;
             }
         }
+    }
     public static bool DriverLanding()
     {
         Console.Clear();
