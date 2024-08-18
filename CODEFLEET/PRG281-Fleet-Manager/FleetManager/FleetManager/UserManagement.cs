@@ -22,22 +22,22 @@ public class UserManagement
                     {
                         if (user.Active == true)
                         {
-                        Console.WriteLine("\n=============================================\nSuccessful Login!! Press Any Key To Continue: ");
-                        Console.ReadKey();
-                        valid = true;
-                        return user.Role;
+                            Console.WriteLine("\n=============================================\nSuccessful Login!! Press Any Key To Continue: ");
+                            Console.ReadKey();
+                            valid = true;
+                            return user.Role;
                         }
                         else
-                        {  
-                            active = false;  
+                        {
+                            active = false;
                         }
                     }
                 }
             }
             if (active == false)
             {
-                 Console.WriteLine("\n=============================\nUser Is Deactivated!");
-                 Console.ReadKey();
+                Console.WriteLine("\n=============================\nUser Is Deactivated!");
+                Console.ReadKey();
             }
             else if (valid == false)
             {
@@ -67,9 +67,16 @@ public class UserManagement
             Console.WriteLine("not all fields are filled in!");
             Console.ReadKey();
         }
+        int lastUserNo = 0;
+        if (users.Count > 0)
+        {
+            User lastUser = users.Last();
+            lastUserNo= lastUser.UserNo;
+        }
 
         User user = new User
         {
+            UserNo = lastUserNo+1,
             UserID = id,
             Name = name,
             Surname = surname,
