@@ -56,7 +56,8 @@ public class UserManagement
         string name = Console.ReadLine();
         Console.Write("Surname: ");
         string surname = Console.ReadLine();
-        Console.Write("Role (\n1. Owner, \n2. Admin, \n3. Driver, \n4. Finance): ");
+        Console.Write("\nRole: \n1. Owner, \n2. Admin, \n3. Driver, \n4. Finance\n");
+        Console.Write("Choose Users Role:");
         int role = Int32.Parse(Console.ReadLine());
         Console.Write("Email: ");
         string email = Console.ReadLine();
