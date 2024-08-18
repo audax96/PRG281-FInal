@@ -314,9 +314,9 @@ public class Reports
             if (int.TryParse(input, out chosenMonth) && chosenMonth >= 1 && chosenMonth <= 12)
             {
                 isValidMonth = true;
-            
+
                 DateTime date = new(1, chosenMonth, 1);
-                monthName = date.ToString("MMMM", CultureInfo.CurrentCulture); 
+                monthName = date.ToString("MMMM", CultureInfo.CurrentCulture);
             }
             else
             {
@@ -457,22 +457,55 @@ public class Reports
 
     private static void GenerateDailyReportVehicles(List<Vehicle> vehicles, List<Driver> drivers, List<Trip> trips)
     {
-        List<Vehicle> selectedVehicles = SelectVehicles(vehicles);
+        List<Vehicle> selected = SelectVehicles(vehicles);
         DateTime today = DateTime.Today;
+        Console.Clear();
+        Console.WriteLine("╔══════════════════════════════════════════╗");
+        Console.WriteLine($"║  DAILY REPORT FOR VEHICLES ({today:dd/MM/yyyy}):  ║");
+        Console.WriteLine("╚══════════════════════════════════════════╝");
 
-        Console.WriteLine("Daily Report for Vehicles:");
-        foreach (var vehicle in selectedVehicles)
+        bool isFirstDriver = true;
+
+        foreach (var vehicle in selected)
         {
+            if (!isFirstDriver)
+            {
+                Console.WriteLine("==========================================================");
+            }
+            isFirstDriver = false;
+
             var vehicleTrips = trips.Where(t => t.VehicleId == vehicle.VehicleId && t.Date.Date == today).ToList();
+
             if (vehicleTrips.Count != 0)
             {
-                Console.WriteLine($"Vehicle: {vehicle.Make} {vehicle.Model}");
+                double totalDistance = 0;
+                double totalFuelEfficiency = 0;
+                int tripCount = 0;
+
+                Console.WriteLine($"{vehicle.VehicleLicence.ToUpper()}:\n");
+
+
+                Console.WriteLine("  Trip ID  |  Driver No  |  Distance  |  Fuel Efficiency ");
                 foreach (var trip in vehicleTrips)
                 {
-                    DisplayTripDetails(trip, drivers);
+                    Console.WriteLine($"  {trip.TripId,6}   |  {trip.DriverNumber,5}       |  {trip.CalculateDistance(),5} km  |    {trip.FuelEfficiency:00.00} L/km");
+                    totalDistance += trip.Distance;
+                    totalFuelEfficiency += trip.FuelEfficiency;
+                    tripCount++;
                 }
+                Console.WriteLine("╔══════════════════════════════════════════╗");
+                Console.WriteLine("║ SUMMARY:                                 ║");
+                Console.WriteLine($"║    Total Distance: {totalDistance:F2} km             ║");
+                Console.WriteLine($"║    Average Fuel Efficiency: {totalFuelEfficiency / tripCount:00.00} L/km   ║");
+                Console.WriteLine("╚══════════════════════════════════════════╝");
+            }
+            else
+            {
+                Console.WriteLine($"{vehicle.VehicleLicence.ToUpper()}:\n");
+                Console.WriteLine("  No Trips in selected timeframe\n");
             }
         }
+
         Console.WriteLine("Press Any Key To Continue:");
         Console.ReadKey();
     }
@@ -525,16 +558,81 @@ public class Reports
 
     private static List<Vehicle> SelectVehicles(List<Vehicle> vehicles)
     {
-        Console.WriteLine("Select a Vehicle:");
-        Console.WriteLine("0. All Vehicles");
-        for (int i = 0; i < vehicles.Count; i++)
+
+        List<Vehicle> selectedVehicles = [];
+
+        while (true)
         {
-            Console.WriteLine($"{i + 1}. {vehicles[i].Make} {vehicles[i].Model}");
+            Console.Clear();
+            Console.WriteLine("Select a Vehicles :");
+            Console.WriteLine("(Select 0 to generate report for selected Vehicles)");
+            Console.WriteLine();
+            Console.WriteLine("0. Generate Report");
+            Console.WriteLine("1. All Vehicles");
+            Console.WriteLine();
+            Console.WriteLine("Vehicles:");
+            for (int i = 0; i < vehicles.Count; i++)
+            {
+                Console.WriteLine($"Vehicle ID: {vehicles[i].VehicleId}. {vehicles[i].Make} {vehicles[i].Model}");
+            }
+            Console.Write("\nChoose a Vehicles by Vehicles ID or 1 for all Vehicles:");
+            string input = Console.ReadLine();
+            Console.WriteLine("");
+
+            if (int.TryParse(input, out int choice))
+            {
+                switch (choice)
+                {
+                    case 0:
+                        if (selectedVehicles.Count != 0)
+                        {
+                            return selectedVehicles;
+                        }
+                        else
+                        {
+                            Console.WriteLine("No Vehicels has been selected!");
+                            Console.ReadKey();
+                        }
+                        break;
+
+                    case 1:
+                        return vehicles;
+
+                    default:
+                        {
+                            bool found = false;
+                            foreach (var vehicle in vehicles)
+                            {
+                                if (vehicle.VehicleId == choice)
+                                {
+                                    selectedVehicles.Add(vehicle);
+                                    found = true;
+                                    break;
+                                }
+                            }
+                            if (!found)
+                            {
+                                Console.WriteLine("Please provide a valid Vehicle ID!");
+                                Console.ReadKey();
+                            }
+                            break;
+                        }
+
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Please select a valid option");
+                Console.ReadKey();
+            }
+
         }
-        Console.Write("Choose an option or 0 for all: ");
-        int choice = int.Parse(Console.ReadLine());
-        return choice == 0 ? vehicles : new List<Vehicle> { vehicles[choice - 1] };
+
+
     }
+
+
 }
 
 

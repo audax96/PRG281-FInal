@@ -99,7 +99,7 @@ public class Admin
             Console.WriteLine("List Of Trips:");
 
             Console.WriteLine("Select Trip To Remove By Trip ID:");
-            var tripNumber = Console.ReadLine();
+            int tripNumber = int.Parse(Console.ReadLine());
             foreach (var trip in trips)
             {
                 if (dateToRemove == trip.Date)

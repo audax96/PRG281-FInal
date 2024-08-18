@@ -2,7 +2,7 @@
 
 public class Trip
 {
-    public required string TripId { get; set; }
+    public required int TripId { get; set; }
     public required int VehicleId { get; set; }
     public required int DriverNumber{ get; set; }
     public double StartOdometer { get; set; }

@@ -144,8 +144,8 @@
 
         void AddVehicle(List<Vehicle> vehicles, DataManager dataManager)
         {
-            Console.WriteLine("Enter Vehicle ID:");
-            int vehicleId = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Vehicle License No:");
+            string vehicleLicenceNo = Console.ReadLine();
 
             Console.WriteLine("Enter Make:");
             string make = Console.ReadLine();
@@ -162,14 +162,23 @@
             Console.WriteLine("Enter Odometer Reading:");
             double odometer = double.Parse(Console.ReadLine());
 
-            Vehicle vehicle = new Vehicle
+            int lastVehicleId = 0;
+            if (vehicles.Count > 0)
             {
-                VehicleId = vehicleId,
+                Vehicle lastVehicle = vehicles.Last();
+                lastVehicleId = lastVehicle.VehicleId;
+            }
+
+            Vehicle vehicle = new()
+            {
+                VehicleId = lastVehicleId + 1,
+                VehicleLicence = vehicleLicenceNo,
                 Make = make,
                 Model = model,
                 Year = year,
                 FuelType = fuelType,
-                OdometerReading = odometer
+                OdometerReading = odometer,
+
             };
 
             vehicles.Add(vehicle);
@@ -322,10 +331,16 @@
             Console.WriteLine("Enter the Price per Liter (in your currency):");
             double pricePerLiter = double.Parse(Console.ReadLine());
 
+            int lastTripId = 0;
+            if (trips.Count > 0)
+            {
+                Trip lastTrip = trips.Last();
+                lastTripId = lastTrip.VehicleId;
+            }
             // Create a new Trip object
             Trip trip = new Trip
             {
-                TripId = Guid.NewGuid().ToString(),
+                TripId = lastTripId + 1,
                 VehicleId = selectedVehicle.VehicleId,
                 DriverNumber = driverNumber,
                 StartOdometer = startOdometer,
