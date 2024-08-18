@@ -7,6 +7,8 @@ public class Driver
     public required DateTime DOB { get; set; }
     public required string Gender { get; set; }
 
+    public required bool Active {get;set;}
+
     public string DisplayFullname()
     {
         return Name + " " + Surname;

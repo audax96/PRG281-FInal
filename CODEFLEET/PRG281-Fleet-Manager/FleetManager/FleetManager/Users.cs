@@ -11,8 +11,4 @@ public class User
     public required string Password {get;set;}
     public required bool Active {get;set;}
 
-    internal static User Last()
-    {
-        throw new NotImplementedException();
-    }
 }

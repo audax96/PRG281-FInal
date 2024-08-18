@@ -333,6 +333,8 @@ public class Reports
 
         foreach (var driver in selectedDrivers)
         {
+         if (driver.Active = true)
+         {
             if (!isFirstDriver)
             {
                 Console.WriteLine("==========================================================");
@@ -368,6 +370,11 @@ public class Reports
                 Console.WriteLine($"{driver.DisplayFullname()}:");
                 Console.WriteLine("  No Trips in selected timeframe\n");
             }
+         }
+         else
+         {
+            continue;
+         }
         }
         Console.WriteLine("Press Any Key To Continue:");
         Console.ReadKey();
