@@ -593,78 +593,84 @@ public class Reports
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("Select a Driver :");
-            Console.WriteLine("(Select 0 to generate report for selected Drivers)");
-            Console.WriteLine();
-            Console.WriteLine("0. Generate Report");
-            Console.WriteLine("1. All Drivers");
-            Console.WriteLine();
             Console.WriteLine("Drivers:");
             for (int i = 0; i < drivers.Count; i++)
             {
                 Console.WriteLine($"Driver Num: {drivers[i].DriverNumber}. {drivers[i].DisplayFullname()}");
             }
-            Console.Write("\nChoose an Drive by Driver Num or 1 for all Drivers: ");
+            Console.WriteLine("\nType Driver's num (eg. 2) to add to Report List.\n");
+            Console.WriteLine("Type A for report on all Drivers.");
+            Console.WriteLine("Type G to generate report for selected Drivers.");
+            Console.Write("\nOption:");
+
             string input = Console.ReadLine();
             Console.WriteLine("");
 
-            if (int.TryParse(input, out int choice))
+
+            switch (input.ToUpper())
             {
-                switch (choice)
-                {
-                    case 0:
-                        if (selectedDrivers.Count != 0)
-                        {
-                            return selectedDrivers;
-                        }
-                        else
-                        {
-                            Console.WriteLine("No drivers has been selected!");
-                            Console.ReadKey();
-                        }
-                        break;
+                case "G":
+                    if (selectedDrivers.Count != 0)
+                    {
+                        return selectedDrivers;
+                    }
+                    else
+                    {
+                        Console.WriteLine("No Drivers has been selected!");
+                        Console.ReadKey();
+                    }
+                    break;
 
-                    case 1:
-                        return drivers;
+                case "A":
+                    return drivers;
 
-                    default:
+                default:
+                    {
+                        bool found = false;
+                        if (int.TryParse(input, out int choice))
                         {
-                            bool found = false;
                             foreach (var driver in drivers)
                             {
                                 if (driver.DriverNumber == choice)
                                 {
-                                    selectedDrivers.Add(driver);
-                                    found = true;
-                                    break;
+                                    bool exist = false;
+                                    foreach (var selectedDriver in selectedDrivers)
+                                    {
+                                        if (selectedDriver.DriverNumber == driver.DriverNumber)
+                                        {
+                                            Console.WriteLine("Driver Aready Added To The List!");
+                                            Console.ReadKey();
+                                            found = true;
+                                            exist = true;
+                                            break;
+                                        }
+                                    }
+                                    if (!exist)
+                                    {
+                                        selectedDrivers.Add(driver);
+                                        Console.WriteLine("Selected Driver Added To List!");
+                                        Console.ReadKey();
+                                        found = true;
+                                        break;
+                                    }
                                 }
                             }
-                            if (!found)
-                            {
-                                Console.WriteLine("Please provide a valid Driver Number!");
-                                Console.ReadKey();
-                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please choose a valid option");
                             break;
                         }
-
-                }
-
+                        if (!found)
+                        {
+                            Console.WriteLine("Please provide a valid Driver Num!");
+                            Console.ReadKey();
+                        }
+                        break;
+                    }
             }
-            else
-            {
-                Console.WriteLine("Please select a valid option");
-                Console.ReadKey();
-            }
-
         }
 
-
-    }
-
-    private static void DisplayTripDetails(Trip trip, List<Driver> drivers)
-    {
-        string driverName = drivers.FirstOrDefault(d => d.DriverNumber == trip.DriverNumber)?.DisplayFullname() ?? "Unknown Driver";
-        Console.WriteLine($"Trip ID: {trip.TripId}, Vehicle ID: {trip.VehicleId}, Driver: {driverName}, Distance: {trip.CalculateDistance()} km, Fuel Efficiency: {trip.FuelEfficiency} L/km, Date: {trip.Date:dd/MM/yyyy}");
     }
 
     private static void GenerateDailyReportVehicles(List<Vehicle> vehicles, List<Driver> drivers, List<Trip> trips)
@@ -971,10 +977,7 @@ public class Reports
                     }
             }
         }
-
     }
-
-
 }
 
 
