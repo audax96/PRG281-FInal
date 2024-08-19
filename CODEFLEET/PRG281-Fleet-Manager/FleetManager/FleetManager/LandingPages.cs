@@ -2,14 +2,17 @@ public class LandingPages
 {
     static DataManager dataManager = new DataManager();
     Admin admin = new Admin();
-  
 
-    public static bool AdminLanding(List<Trip> trips, List<Vehicle> vehicles, List<Driver> drivers, List<User> users, List<Finance> finance )
+
+    public static bool AdminLanding(List<Trip> trips, List<Vehicle> vehicles, List<Driver> drivers, List<User> users, List<Finance> finance, string loggedInName)
     {
         Console.Clear();
         Console.WriteLine("╔═════════════════════════════════════════╗");
         Console.WriteLine("║             Admin Home Page             ║");
         Console.WriteLine("╚═════════════════════════════════════════╝");
+        Console.WriteLine("===========================================");
+        Console.WriteLine($"{loggedInName,20}, Welcome");
+        Console.WriteLine("===========================================");
         Console.WriteLine("1. Admin");
         Console.WriteLine("2. Log Trip");
         Console.WriteLine("3. Reports");
@@ -20,7 +23,7 @@ public class LandingPages
         switch (option)
         {
             case "1":
-                AdminDisplay(users, vehicles, drivers);
+                AdminDisplay(users, vehicles, drivers, trips);
                 return true;
                 break;
             case "2":
@@ -31,8 +34,8 @@ public class LandingPages
                 DisplayReports(drivers, trips, vehicles);
                 return true;
                 break;
-              case "4":
-                FinanceLanding(finance, trips);
+            case "4":
+                FinanceLanding(finance, trips, loggedInName);
                 return true;
                 break;
 
@@ -45,20 +48,21 @@ public class LandingPages
                 break;
         }
     }
-    public static void AdminDisplay(List<User> users, List<Vehicle> vehicles, List<Driver> drivers)
+    public static void AdminDisplay(List<User> users, List<Vehicle> vehicles, List<Driver> drivers, List<Trip> trips)
     {
         while (true)
         {
             Console.Clear();
             Console.WriteLine("╔═════════════════════════════════════════╗");
-            Console.WriteLine("║              Admin Home Page            ║");
+            Console.WriteLine("║               Admin Funtions            ║");
             Console.WriteLine("╚═════════════════════════════════════════╝");
             Console.WriteLine("1. Add Vehicle");
             Console.WriteLine("2. Add Driver");
             Console.WriteLine("3. Add User");
-            Console.WriteLine("4. Remove Vehicle");
-            Console.WriteLine("5. Remove Driver");
+            Console.WriteLine("4. Deactivate Vehicle");
+            Console.WriteLine("5. Deactivate Driver");
             Console.WriteLine("6. Toggle User Status");
+            Console.WriteLine("7. Delete Trip");
             Console.WriteLine("0. Exit");
             Console.Write("Choose an option: ");
 
@@ -77,6 +81,8 @@ public class LandingPages
 
                 case "6": users = UserManagement.DeactivateUser(users); break;
 
+                case "7": trips = Admin.RemoveTrip(trips); break;
+
                 case "0": return;
 
                 default:
@@ -85,12 +91,15 @@ public class LandingPages
             }
         }
     }
-    public static bool DriverLanding( List<Driver> drivers,List<Trip> trips, List<Vehicle> vehicles)
+    public static bool DriverLanding(List<Driver> drivers, List<Trip> trips, List<Vehicle> vehicles, string loggedInName)
     {
         Console.Clear();
         Console.WriteLine("╔═════════════════════════════════════════╗");
         Console.WriteLine("║            Driver Home Page             ║");
         Console.WriteLine("╚═════════════════════════════════════════╝");
+        Console.WriteLine("===========================================");
+        Console.WriteLine($"{loggedInName,20}, Welcome");
+        Console.WriteLine("===========================================");
         Console.WriteLine("1. Reports");
         Console.WriteLine("0. Exit");
         Console.Write("Choose an option: ");
@@ -140,7 +149,7 @@ public class LandingPages
 
     }
 
-    public static void FinanceLanding(List<Finance> finances, List<Trip> trips )
+    public static void FinanceLanding(List<Finance> finances, List<Trip> trips, string loggedInName)
     {
         while (true)
         {
@@ -148,6 +157,9 @@ public class LandingPages
             Console.WriteLine("╔═════════════════════════════════════════╗");
             Console.WriteLine("║               Handled Trips             ║");
             Console.WriteLine("╚═════════════════════════════════════════╝");
+            Console.WriteLine("===========================================");
+            Console.WriteLine($"{loggedInName,20}, Welcome");
+            Console.WriteLine("===========================================");
             if (finances == null)
             {
                 Console.WriteLine("Finances list is null. Please check the initialization. Press Enter to continue.");
