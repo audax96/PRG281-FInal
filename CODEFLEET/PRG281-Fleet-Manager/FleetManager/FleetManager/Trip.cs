@@ -34,10 +34,13 @@ public class Trip
         }
 
         // Prompt user to select a vehicle by number
-        Console.WriteLine("Enter the number corresponding to the vehicle you want to select:");
+        Console.WriteLine("Enter the number corresponding to the vehicle you want to select (Enter '0' to exit):");
         int selectedIndex;
-        bool isValid = int.TryParse(Console.ReadLine(), out selectedIndex) && selectedIndex > 0 && selectedIndex <= vehicles.Count;
-
+        bool isValid = int.TryParse(Console.ReadLine(), out selectedIndex) && selectedIndex >= 0&& selectedIndex <= vehicles.Count;
+        if (selectedIndex == 0)
+        {
+            return;
+        }
         if (!isValid)
         {
             Console.WriteLine("Invalid selection. Please try again.");
@@ -49,20 +52,28 @@ public class Trip
         var selectedVehicle = vehicles[selectedIndex - 1];
 
         //Get Driver ID
-        Console.WriteLine("Select Driver by Number:");
+        Console.WriteLine("Select Driver by Number  (Enter '0' to exit):");
         for (int i = 0; i < drivers.Count; i++)
         {
             Console.WriteLine($"Driver: {drivers[i].DriverNumber}, {drivers[i].DisplayFullname()}");
         }
         var driverNumber = Int32.Parse(Console.ReadLine());
+        if (driverNumber == 0)
+        {
+            return;
+        }
 
         // Use the selected vehicle's current odometer as the start odometer
         double startOdometer = selectedVehicle.OdometerReading;
         Console.WriteLine($"Start Odometer Reading: {startOdometer} km");
 
         // Prompt user to enter the end odometer reading
-        Console.WriteLine("Enter End Odometer Reading:");
+        Console.WriteLine("Enter End Odometer Reading  (Enter '0' to exit):");
         double endOdometer = double.Parse(Console.ReadLine());
+        if (endOdometer == 0)
+        {
+            return;
+        }
 
         // Ensure that the end odometer is greater than the start odometer
         if (endOdometer < startOdometer)
@@ -76,12 +87,17 @@ public class Trip
         double distanceTraveled = endOdometer - startOdometer;
 
         // Prompt user to enter the fuel used
-        Console.WriteLine("Enter Fuel Used (in liters):");
+        Console.WriteLine("Enter Fuel Used (in liters), (Enter '0' to exit):");
         double fuelUsed = double.Parse(Console.ReadLine());
+
+        if(fuelUsed == 0)
+        {
+            return;
+        }
 
         // Calculate fuel efficiency (km per liter)
         double fuelEfficiency = distanceTraveled / fuelUsed;
-        Console.WriteLine($"Fuel Efficiency: {fuelEfficiency} km/l");
+        Console.WriteLine($"Fuel Efficiency: {fuelEfficiency} km/l ");
 
         // Prompt user to enter the date of the trip
         Console.WriteLine("Enter the Date of the Trip (dd/mm/yyyy):");
@@ -95,8 +111,12 @@ public class Trip
         date = date.Date;
 
         // Prompt user to enter the price per liter
-        Console.WriteLine("Enter the Price per Liter (in your currency):");
+        Console.WriteLine("Enter the Price per Liter (in your currency),  (Enter '0' to exit):");
         double pricePerLiter = double.Parse(Console.ReadLine());
+        if(pricePerLiter == 0)
+        {
+            return;
+        }
 
         int lastTripId = 0;
         if (trips.Count > 0)
