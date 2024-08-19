@@ -36,7 +36,7 @@ public class Trip
         // Prompt user to select a vehicle by number
         Console.WriteLine("Enter the number corresponding to the vehicle you want to select (Enter '0' to exit):");
         int selectedIndex;
-        bool isValid = int.TryParse(Console.ReadLine(), out selectedIndex) && selectedIndex >= 0&& selectedIndex <= vehicles.Count;
+        bool isValid = int.TryParse(Console.ReadLine(), out selectedIndex) && selectedIndex >= 0 && selectedIndex <= vehicles.Count;
         if (selectedIndex == 0)
         {
             return;
@@ -52,7 +52,7 @@ public class Trip
         var selectedVehicle = vehicles[selectedIndex - 1];
 
         //Get Driver ID
-        Console.WriteLine("Select Driver by Number  (Enter '0' to exit):");
+        Console.WriteLine("Select Driver by Number (Enter '0' to exit):");
         for (int i = 0; i < drivers.Count; i++)
         {
             Console.WriteLine($"Driver: {drivers[i].DriverNumber}, {drivers[i].DisplayFullname()}");
@@ -68,7 +68,7 @@ public class Trip
         Console.WriteLine($"Start Odometer Reading: {startOdometer} km");
 
         // Prompt user to enter the end odometer reading
-        Console.WriteLine("Enter End Odometer Reading  (Enter '0' to exit):");
+        Console.WriteLine("Enter End Odometer Reading (Enter '0' to exit):");
         double endOdometer = double.Parse(Console.ReadLine());
         if (endOdometer == 0)
         {
@@ -90,7 +90,7 @@ public class Trip
         Console.WriteLine("Enter Fuel Used (in liters), (Enter '0' to exit):");
         double fuelUsed = double.Parse(Console.ReadLine());
 
-        if(fuelUsed == 0)
+        if (fuelUsed == 0)
         {
             return;
         }
@@ -111,9 +111,9 @@ public class Trip
         date = date.Date;
 
         // Prompt user to enter the price per liter
-        Console.WriteLine("Enter the Price per Liter (in your currency),  (Enter '0' to exit):");
+        Console.WriteLine("Enter the Price per Liter (in your currency), (Enter '0' to exit):");
         double pricePerLiter = double.Parse(Console.ReadLine());
-        if(pricePerLiter == 0)
+        if (pricePerLiter == 0)
         {
             return;
         }
@@ -146,8 +146,9 @@ public class Trip
         // Update the vehicle's odometer to the end odometer of the trip
         selectedVehicle.OdometerReading = endOdometer;
         dataManager.SaveVehicles(vehicles);
-
+        Console.WriteLine("=======================================================================================");
         Console.WriteLine("Trip logged successfully, with fuel efficiency calculated and vehicle odometer updated!");
+        Console.WriteLine("=======================================================================================");
         Console.ReadKey();
     }
 

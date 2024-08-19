@@ -3,7 +3,6 @@
     private static void Main(string[] args)
     {
         DataManager dataManager = new DataManager();
-        Admin admin = new Admin();
         List<Vehicle> vehicles = dataManager.LoadVehicles();
         List<Trip> trips = dataManager.LoadTrips();
         List<Driver> drivers = dataManager.LoadDrivers();

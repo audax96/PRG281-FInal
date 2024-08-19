@@ -91,6 +91,10 @@ public class Admin
 
         while (true)
         {
+            Console.Clear();
+            Console.WriteLine("╔═════════════════════════════════════════╗");
+            Console.WriteLine("║               Remove Trip               ║");
+            Console.WriteLine("╚═════════════════════════════════════════╝");
 
             Console.Write("Enter Trip date");
             DateTime dateToRemove = DateTime.Parse(Console.ReadLine());
@@ -132,22 +136,26 @@ public class Admin
 
     public static void AddVehicle(List<Vehicle> vehicles, DataManager dataManager)
     {
-        Console.WriteLine("Enter Vehicle License No:");
+        Console.Clear();
+        Console.WriteLine("╔═════════════════════════════════════════╗");
+        Console.WriteLine("║               ADD VEHICLE               ║");
+        Console.WriteLine("╚═════════════════════════════════════════╝");
+        Console.WriteLine("License No:");
         string vehicleLicenceNo = Console.ReadLine();
 
-        Console.WriteLine("Enter Make:");
+        Console.Write("Make:");
         string make = Console.ReadLine();
 
-        Console.WriteLine("Enter Model:");
+        Console.Write("Model:");
         string model = Console.ReadLine();
 
-        Console.WriteLine("Enter Year:");
+        Console.Write("Year:");
         int year = int.Parse(Console.ReadLine());
 
-        Console.WriteLine("Enter Fuel Type:");
+        Console.Write("Fuel Type:");
         string fuelType = Console.ReadLine();
 
-        Console.WriteLine("Enter Odometer Reading:");
+        Console.Write("Odometer Reading:");
         double odometer = double.Parse(Console.ReadLine());
 
         int lastVehicleId = 0;
@@ -171,25 +179,30 @@ public class Admin
 
         vehicles.Add(vehicle);
         dataManager.SaveVehicles(vehicles);
-        Console.WriteLine("Vehicle added successfully!");
+        Console.WriteLine( "============================================================================");
+        Console.WriteLine($"{vehicle.Make} {vehicle.Model}, {vehicle.VehicleLicence} added successfully!");
+        Console.WriteLine( "============================================================================");
         Console.ReadKey();
     }
 
     public static void AddDriver(List<Driver> drivers, DataManager dataManager)
     {
+        Console.WriteLine("╔═════════════════════════════════════════╗");
+        Console.WriteLine("║                ADD DRIVER               ║");
+        Console.WriteLine("╚═════════════════════════════════════════╝");
         string driverGender = "";
         bool valid = false;
-        Console.Write("Enter Driver's ID Number: ");
+        Console.Write("ID Number: ");
         string driverid = Console.ReadLine();
-        Console.Write("Enter Driver's Name: ");
+        Console.Write("Name: ");
         string name = Console.ReadLine();
-        Console.Write("Enter Driver's Surname: ");
+        Console.Write("Surname: ");
         string surname = Console.ReadLine();
-        Console.Write("Enter Driver's Date of Birth(dd/mm/yyyy): ");
+        Console.Write("Date of Birth(dd/mm/yyyy): ");
         string dob = Console.ReadLine();
         while (!valid)
         {
-            Console.WriteLine("Enter Driver's Gender:");
+            Console.WriteLine("Gender:");
             Console.WriteLine("1: Male");
             Console.WriteLine("2: Female");
             string ans = Console.ReadLine();
@@ -228,7 +241,9 @@ public class Admin
         };
         drivers.Add(driver);
         dataManager.SaveDrivers(drivers);
-        Console.WriteLine("Driver added successfully!");
+        Console.WriteLine( "==============================================");
+        Console.WriteLine($"{driver.DisplayFullname()} added successfully!");
+        Console.WriteLine( "==============================================");
         Console.ReadKey();
 
     }
@@ -244,20 +259,20 @@ public class Admin
                 {
                     found = true;
                     break;
-                }   
+                }
             }
             if (!found)
             {
-                 Finance finance = new Finance()
-                    {
-                        TripNumber = trip.TripId,
-                        KMsLogged = trip.Distance,
-                        Handled = false,
-                        CostOfTrip = trip.CalculateDistance(),
-                        DateOfTrip = trip.Date
-                    };
-                    finances.Add(finance);
-                    dataManager.SaveFinance(finances);
+                Finance finance = new Finance()
+                {
+                    TripNumber = trip.TripId,
+                    KMsLogged = trip.Distance,
+                    Handled = false,
+                    CostOfTrip = trip.CalculateDistance(),
+                    DateOfTrip = trip.Date
+                };
+                finances.Add(finance);
+                dataManager.SaveFinance(finances);
             }
         }
     }
