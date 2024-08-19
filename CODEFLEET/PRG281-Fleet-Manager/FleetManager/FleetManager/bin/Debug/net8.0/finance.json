@@ -1,0 +1,30 @@
+[
+  {
+    "TripNumber": 1,
+    "CostOfTrip": 1050,
+    "KMsLogged": 1050,
+    "DateOfTrip": "2024-08-19T00:00:00",
+    "Handled": true
+  },
+  {
+    "TripNumber": 4,
+    "CostOfTrip": 672,
+    "KMsLogged": 672,
+    "DateOfTrip": "2024-08-19T00:00:00",
+    "Handled": true
+  },
+  {
+    "TripNumber": 3,
+    "CostOfTrip": 217,
+    "KMsLogged": 217,
+    "DateOfTrip": "2024-08-19T00:00:00",
+    "Handled": false
+  },
+  {
+    "TripNumber": 5,
+    "CostOfTrip": 569,
+    "KMsLogged": 569,
+    "DateOfTrip": "2024-08-19T00:00:00",
+    "Handled": false
+  }
+]

@@ -2,13 +2,9 @@ public class LandingPages
 {
     static DataManager dataManager = new DataManager();
     Admin admin = new Admin();
-    static List<Vehicle> vehicles = dataManager.LoadVehicles();
-    static List<Trip> trips = dataManager.LoadTrips();
-    static List<Driver> drivers = dataManager.LoadDrivers();
-    static List<User> users = dataManager.LoadUser();
+  
 
-
-    public static bool AdminLanding()
+    public static bool AdminLanding(List<Trip> trips, List<Vehicle> vehicles, List<Driver> drivers, List<User> users, List<Finance> finance )
     {
         Console.Clear();
         Console.WriteLine("╔═════════════════════════════════════════╗");
@@ -17,13 +13,14 @@ public class LandingPages
         Console.WriteLine("1. Admin");
         Console.WriteLine("2. Log Trip");
         Console.WriteLine("3. Reports");
+        Console.WriteLine("4. Finance");
         Console.WriteLine("0. Exit");
         Console.Write("Choose an option: ");
         string option = Console.ReadLine();
         switch (option)
         {
             case "1":
-                AdminDisplay();
+                AdminDisplay(users, vehicles, drivers);
                 return true;
                 break;
             case "2":
@@ -31,9 +28,14 @@ public class LandingPages
                 return true;
                 break;
             case "3":
-                DisplayReports();
+                DisplayReports(drivers, trips, vehicles);
                 return true;
                 break;
+              case "4":
+                FinanceLanding(finance, trips);
+                return true;
+                break;
+
             case "0":
                 return false;
                 break;
@@ -43,7 +45,7 @@ public class LandingPages
                 break;
         }
     }
-    public static void AdminDisplay()
+    public static void AdminDisplay(List<User> users, List<Vehicle> vehicles, List<Driver> drivers)
     {
         while (true)
         {
@@ -83,7 +85,7 @@ public class LandingPages
             }
         }
     }
-    public static bool DriverLanding()
+    public static bool DriverLanding( List<Driver> drivers,List<Trip> trips, List<Vehicle> vehicles)
     {
         Console.Clear();
         Console.WriteLine("╔═════════════════════════════════════════╗");
@@ -96,7 +98,7 @@ public class LandingPages
         switch (option)
         {
             case "1":
-                DisplayReports();
+                DisplayReports(drivers, trips, vehicles);
                 return true;
                 break;
             case "0":
@@ -109,9 +111,8 @@ public class LandingPages
         }
     }
 
-    public static void DisplayReports()
+    public static void DisplayReports(List<Driver> drivers, List<Trip> trips, List<Vehicle> vehicles)
     {
-        Reports reports = new();
 
         while (true)
         {
@@ -126,7 +127,7 @@ public class LandingPages
             string option = Console.ReadLine();
             switch (option)
             {
-                case "1": reports.ReportsTrips(drivers, trips); break;
+                case "1": Reports.ReportsTrips(drivers, trips); break;
 
                 case "2": Reports.ReportsDrivers(drivers, trips); break;
 
@@ -142,12 +143,65 @@ public class LandingPages
 
     }
 
-    public static void FinanceLanding()
+    public static void FinanceLanding(List<Finance> finances, List<Trip> trips )
     {
-        Console.Clear();
-        Console.WriteLine("╔═════════════════════════════════════════╗");
-        Console.WriteLine("║           Finance Home Page             ║");
-        Console.WriteLine("╚═════════════════════════════════════════╝");
-        Console.ReadKey();
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("╔═════════════════════════════════════════╗");
+            Console.WriteLine("║               Handled Trips             ║");
+            Console.WriteLine("╚═════════════════════════════════════════╝");
+            if (finances == null)
+            {
+                Console.WriteLine("Finances list is null. Please check the initialization. Press Enter to continue.");
+                Console.ReadKey();
+                return;
+            }
+            Admin.AddFinance(finances, trips, dataManager);
+            foreach (var record in finances)
+            {
+                if (record.Handled)
+                {
+                    string date = record.DateOfTrip.ToString("dd/MM/yyyy");
+                    Console.WriteLine($"|| Trip Number: {record.TripNumber} || Cost: R{record.CostOfTrip} || Distance: {record.KMsLogged}km || Date: {date} ||");
+                }
+            }
+            Console.WriteLine("╔═════════════════════════════════════════╗");
+            Console.WriteLine("║              Unhandled Trips            ║");
+            Console.WriteLine("╚═════════════════════════════════════════╝");
+            foreach (var record in finances)
+            {
+                if (!record.Handled)
+                {
+                    string date = record.DateOfTrip.ToString("dd/MM/yyyy");
+                    Console.WriteLine($"|| Trip Number: {record.TripNumber} || Cost: R{record.CostOfTrip} || Distance: {record.KMsLogged}km || Date: {date} ||");
+                }
+            }
+
+            Console.Write("Enter Trip Number Once handled (Enter '0' to Exit): ");
+            if (int.TryParse(Console.ReadLine(), out int handled))
+            {
+                var record = finances.FirstOrDefault(r => r.TripNumber == handled);
+                if (record != null)
+                {
+                    record.Handled = true;
+                    dataManager.SaveFinance(finances);
+                    Console.WriteLine($"Trip {record.TripNumber} has been handled. Press Enter to continue:");
+                    Console.ReadKey();
+                }
+                else if (handled == 0)
+                {
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Trip number not found.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid trip number.");
+            }
+        }
     }
 }

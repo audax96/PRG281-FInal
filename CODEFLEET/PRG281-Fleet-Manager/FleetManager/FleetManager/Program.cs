@@ -8,6 +8,7 @@
         List<Trip> trips = dataManager.LoadTrips();
         List<Driver> drivers = dataManager.LoadDrivers();
         List<User> users = dataManager.LoadUser();
+        List<Finance> finance = dataManager.LoadFinance();
         bool loggedin = false;
         int userRole = 0;
         while (true)
@@ -24,17 +25,16 @@
             }
             else if (userRole == 1 || userRole == 2)
             {
-                loggedin= LandingPages.AdminLanding();
+                loggedin = LandingPages.AdminLanding(trips, vehicles, drivers, users, finance);
             }
             else if (userRole == 3)
             {
-                loggedin = LandingPages.DriverLanding();
+                loggedin = LandingPages.DriverLanding(drivers, trips, vehicles);
             }
             else if (userRole == 4)
             {
-                LandingPages.FinanceLanding();
+                LandingPages.FinanceLanding(finance, trips);
             }
-        }
-
+        }  
     }
 }
