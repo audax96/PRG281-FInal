@@ -10,6 +10,7 @@ public class DataManager
     private readonly string tripFilePath = "trips.json";
     private readonly string driverFilePath = "drivers.json";
     private readonly string userFilePath = "users.json";
+    private readonly string financeFilePath = "finance.json";
 
     private static readonly byte[] Key = Encoding.UTF8.GetBytes("0123456789abcdef"); // 16 bytes for AES-128
     private static readonly byte[] IV = Encoding.UTF8.GetBytes("abcdef9876543210"); // 16 bytes
@@ -19,10 +20,14 @@ public class DataManager
     public List<Driver> LoadDrivers() => LoadJsonFile<List<Driver>>(driverFilePath);
     public List<User> LoadUser() => LoadJsonFile<List<User>>(userFilePath, true);
 
+    public List<Finance> LoadFinance() => LoadJsonFile<List<Finance>>(financeFilePath, true);
+
     public void SaveVehicles(List<Vehicle> vehicles) => SaveJsonFile(vehicleFilePath, vehicles);
     public void SaveTrips(List<Trip> trips) => SaveJsonFile(tripFilePath, trips);
     public void SaveDrivers(List<Driver> drivers) => SaveJsonFile(driverFilePath, drivers);
     public void SaveUser(List<User> users) => SaveJsonFile(userFilePath, users, true);
+
+    public void SaveFinance(List<Finance> finance) => SaveJsonFile(financeFilePath, finance);
 
     private static T LoadJsonFile<T>(string path, bool decryptPasswords = false)
     {
