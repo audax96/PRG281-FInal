@@ -191,6 +191,8 @@ public class LandingPages
                 }
                 else if (handled == 0)
                 {
+                    Console.WriteLine("exit");
+                    Console.ReadKey();
                     return;
                 }
                 else
