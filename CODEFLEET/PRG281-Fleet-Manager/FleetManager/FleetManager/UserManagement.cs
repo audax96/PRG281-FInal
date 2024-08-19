@@ -4,7 +4,7 @@ public class UserManagement
 {
     public static DataManager dataManager = new();
 
-    public static int Login(List<User> users)
+    public static int Login(List<User> users , ref string loggedInName)
     {
         bool valid = false;
         while (!valid)
@@ -25,6 +25,7 @@ public class UserManagement
                             Console.WriteLine("\n=============================================\nSuccessful Login!! Press Any Key To Continue: ");
                             Console.ReadKey();
                             valid = true;
+                            loggedInName = user.Name;
                             return user.Role;
                         }
                         else

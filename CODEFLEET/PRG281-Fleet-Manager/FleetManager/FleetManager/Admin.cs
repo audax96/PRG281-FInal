@@ -12,7 +12,11 @@ public class Admin
             Console.WriteLine("List Of Drivers:");
             for (int i = 0; i < drivers.Count; i++)
             {
-                Console.WriteLine($"Driver: {drivers[i].DriverNumber}, {drivers[i].DisplayFullname()}");
+                if (drivers[i].Active == true)
+                {
+                 Console.WriteLine($"Driver: {drivers[i].DriverNumber}, {drivers[i].DisplayFullname()}");   
+                }
+                
             }
             Console.WriteLine("Select Driver To Remove By Driver Number:");
 
@@ -30,7 +34,7 @@ public class Admin
                     {
                         driver.Active = false;
                         dataManager.SaveDrivers(drivers);
-                        Console.WriteLine("Driver Removed Successfully");
+                        Console.WriteLine("Driver Deactived Successfully");
                         Console.ReadKey();
                         return drivers;
                     }
@@ -51,7 +55,11 @@ public class Admin
             Console.WriteLine("List Of vehicles:");
             for (int i = 0; i < vehicles.Count; i++)
             {
+                if (vehicles[i].Active == true)
+                {
                 Console.WriteLine($"Vehicel: {vehicles[i].VehicleId}, {vehicles[i].Make}, {vehicles[i].Model}");
+                }
+                
             }
             Console.WriteLine("Select Vehicle To Remove By Vehicel ID:");
             string input = Console.ReadLine();
@@ -70,9 +78,9 @@ public class Admin
 
                     if (vehicleId == vehicle.VehicleId)
                     {
-                        vehicles.Remove(vehicle);
+                        vehicle.Active = false;
                         dataManager.SaveVehicles(vehicles);
-                        Console.WriteLine("Vehicel Removed Successfully");
+                        Console.WriteLine("Vehicel Deactivated Successfully");
                         Console.ReadKey();
                         return vehicles;
                     }
@@ -166,7 +174,7 @@ public class Admin
             Year = year,
             FuelType = fuelType,
             OdometerReading = odometer,
-
+            Active = true
         };
 
         vehicles.Add(vehicle);

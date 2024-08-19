@@ -7,4 +7,5 @@
     public required int Year { get; set; }
     public required string FuelType { get; set; }
     public required double OdometerReading { get; set; }
+    public required bool Active {get; set;}
 }
