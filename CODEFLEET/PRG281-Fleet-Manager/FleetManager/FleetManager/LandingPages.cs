@@ -154,12 +154,12 @@ public class LandingPages
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("╔═════════════════════════════════════════╗");
-            Console.WriteLine("║               Handled Trips             ║");
-            Console.WriteLine("╚═════════════════════════════════════════╝");
             Console.WriteLine("===========================================");
             Console.WriteLine($"{loggedInName,20}, Welcome");
             Console.WriteLine("===========================================");
+            Console.WriteLine("╔═════════════════════════════════════════╗");
+            Console.WriteLine("║               Handled Trips             ║");
+            Console.WriteLine("╚═════════════════════════════════════════╝");
             if (finances == null)
             {
                 Console.WriteLine("Finances list is null. Please check the initialization. Press Enter to continue.");
