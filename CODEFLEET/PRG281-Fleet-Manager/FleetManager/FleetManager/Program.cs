@@ -18,11 +18,6 @@ internal class Program
         {
             if (loggedin == false)
             {
-                Console.Clear();
-                Console.WriteLine("         Welcome to Fleet Manager");
-                Console.WriteLine("╔═════════════════════════════════════════╗");
-                Console.WriteLine("║                 LOGIN                   ║");
-                Console.WriteLine("╚═════════════════════════════════════════╝");
                 userRole = UserManagement.Login(users ,ref loggedInName);
                 loggedin = true;
             }

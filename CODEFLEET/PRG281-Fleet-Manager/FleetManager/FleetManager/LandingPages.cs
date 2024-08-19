@@ -154,12 +154,15 @@ public class LandingPages
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("===========================================");
-            Console.WriteLine($"{loggedInName,20}, Welcome");
-            Console.WriteLine("===========================================");
-            Console.WriteLine("╔═════════════════════════════════════════╗");
-            Console.WriteLine("║               Handled Trips             ║");
-            Console.WriteLine("╚═════════════════════════════════════════╝");
+            Console.WriteLine("   ╔═════════════════════════════════════════╗");
+            Console.WriteLine("   ║                  FINANCE                ║");
+            Console.WriteLine("   ╚═════════════════════════════════════════╝");
+            Console.WriteLine("   ===========================================");
+            Console.WriteLine($"   {loggedInName,20}, Welcome");
+            Console.WriteLine("   ===========================================\n");
+            Console.WriteLine("   ╔═════════════════════════════════════════╗");
+            Console.WriteLine("   ║               Handled Trips             ║");
+            Console.WriteLine("   ╚═════════════════════════════════════════╝");
             if (finances == null)
             {
                 Console.WriteLine("Finances list is null. Please check the initialization. Press Enter to continue.");
@@ -167,25 +170,35 @@ public class LandingPages
                 return;
             }
             Admin.AddFinance(finances, trips, dataManager);
+
+            Console.WriteLine("╔═══════════════════════════════════════════════╗");
+            Console.WriteLine("║ Trip ID  ║  Cost  ║  Distance  ║     date     ║");
+            Console.WriteLine("╚═══════════════════════════════════════════════╝");
             foreach (var record in finances)
             {
                 if (record.Handled)
                 {
                     string date = record.DateOfTrip.ToString("dd/MM/yyyy");
-                    Console.WriteLine($"|| Trip Number: {record.TripNumber} || Cost: R{record.CostOfTrip} || Distance: {record.KMsLogged}km || Date: {date} ||");
+                    Console.WriteLine($"║{record.TripNumber,6}    ║ {record.CostOfTrip,5}  ║   {record.KMsLogged,5}    ║  {date,10}  ║");
                 }
             }
-            Console.WriteLine("╔═════════════════════════════════════════╗");
-            Console.WriteLine("║              Unhandled Trips            ║");
-            Console.WriteLine("╚═════════════════════════════════════════╝");
+            Console.WriteLine("╚═══════════════════════════════════════════════╝\n");
+            Console.WriteLine("   ╔═════════════════════════════════════════╗");
+            Console.WriteLine("   ║              Unhandled Trips            ║");
+            Console.WriteLine("   ╚═════════════════════════════════════════╝");
+
+            Console.WriteLine("╔═══════════════════════════════════════════════╗");
+            Console.WriteLine("║ Trip ID  ║  Cost  ║  Distance  ║     date     ║");
+            Console.WriteLine("╚═══════════════════════════════════════════════╝");
             foreach (var record in finances)
             {
                 if (!record.Handled)
                 {
                     string date = record.DateOfTrip.ToString("dd/MM/yyyy");
-                    Console.WriteLine($"|| Trip Number: {record.TripNumber} || Cost: R{record.CostOfTrip} || Distance: {record.KMsLogged}km || Date: {date} ||");
+                    Console.WriteLine($"║{record.TripNumber,6}    ║ {record.CostOfTrip,5}  ║   {record.KMsLogged,5}    ║  {date,10}  ║");
                 }
             }
+            Console.WriteLine("╚═══════════════════════════════════════════════╝\n");
 
             Console.Write("Enter Trip Number Once handled (Enter '0' to Exit): ");
             if (int.TryParse(Console.ReadLine(), out int handled))

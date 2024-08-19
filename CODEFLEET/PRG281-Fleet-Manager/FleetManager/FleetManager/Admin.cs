@@ -148,7 +148,7 @@ public class Admin
         Console.WriteLine("╔═════════════════════════════════════════╗");
         Console.WriteLine("║               ADD VEHICLE               ║");
         Console.WriteLine("╚═════════════════════════════════════════╝");
-        Console.WriteLine("License No:");
+        Console.Write("License No:");
         string vehicleLicenceNo = Console.ReadLine();
 
         Console.Write("Make:");
@@ -195,6 +195,7 @@ public class Admin
 
     public static void AddDriver(List<Driver> drivers, DataManager dataManager)
     {
+        Console.Clear();
         Console.WriteLine("╔═════════════════════════════════════════╗");
         Console.WriteLine("║                ADD DRIVER               ║");
         Console.WriteLine("╚═════════════════════════════════════════╝");

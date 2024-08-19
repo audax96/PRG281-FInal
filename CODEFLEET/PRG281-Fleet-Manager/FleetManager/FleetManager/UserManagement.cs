@@ -4,11 +4,16 @@ public class UserManagement
 {
     public static DataManager dataManager = new();
 
-    public static int Login(List<User> users , ref string loggedInName)
+    public static int Login(List<User> users, ref string loggedInName)
     {
         bool valid = false;
         while (!valid)
         {
+            Console.Clear();
+            Console.WriteLine("         Welcome to Fleet Manager");
+            Console.WriteLine("╔═════════════════════════════════════════╗");
+            Console.WriteLine("║                 LOGIN                   ║");
+            Console.WriteLine("╚═════════════════════════════════════════╝");
             Console.Write("Enter Email: ");
             string email = Console.ReadLine();
             Console.Write("Password: ");
@@ -22,8 +27,8 @@ public class UserManagement
                     {
                         if (user.Active == true)
                         {
-                            Console.WriteLine("\n=============================================\nSuccessful Login!! Press Any Key To Continue: ");
-                            Console.ReadKey();
+                            // Console.WriteLine("\n=============================================\nSuccessful Login!! Press Any Key To Continue: ");
+                            // Console.ReadKey();
                             valid = true;
                             loggedInName = user.Name;
                             return user.Role;
@@ -42,7 +47,8 @@ public class UserManagement
             }
             else if (valid == false)
             {
-                Console.WriteLine("\n=============================\nInvalid Email or Password. \n=============================\nPlease try agian:");
+                Console.Clear();
+                Console.WriteLine("\n===========================\nInvalid Email or Password. \n===========================\nEnter to continue:");
                 Console.ReadKey();
             }
         }
@@ -51,7 +57,11 @@ public class UserManagement
 
     public static void CreateUser(List<User> users)
     {
-        Console.Write("Enter Your National ID: ");
+        Console.Clear();
+        Console.WriteLine("╔═════════════════════════════════════════╗");
+        Console.WriteLine("║                 ADD User                ║");
+        Console.WriteLine("╚═════════════════════════════════════════╝");
+        Console.Write("National ID: ");
         string id = Console.ReadLine();
         Console.Write("Name: ");
         string name = Console.ReadLine();
@@ -89,7 +99,9 @@ public class UserManagement
         };
         users.Add(user);
         dataManager.SaveUser(users);
-        Console.WriteLine("\n=============================\n User added successfully!");
+        Console.WriteLine("\n====================================");
+        Console.WriteLine($"{user.Name} {user.Surname} added successfully!");
+        Console.WriteLine("====================================");
         Console.ReadKey();
 
 
@@ -108,7 +120,7 @@ public class UserManagement
         {
             if (user.Active == true)
             {
-               Console.WriteLine($"|| User Number: {user.UserNo} || User Name: {user.Name}  {user.Surname}||");  
+                Console.WriteLine($"|| User Number: {user.UserNo} || User Name: {user.Name}  {user.Surname}||");
             }
         }
         Console.WriteLine("╔═════════════════════════════════════════╗");
@@ -118,7 +130,7 @@ public class UserManagement
         {
             if (user.Active == false)
             {
-               Console.WriteLine($"|| User Number: {user.UserNo} || User Name: {user.Name}  {user.Surname}||"); 
+                Console.WriteLine($"|| User Number: {user.UserNo} || User Name: {user.Name}  {user.Surname}||");
             }
         }
 
