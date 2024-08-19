@@ -34,7 +34,9 @@ public class Admin
                     {
                         driver.Active = false;
                         dataManager.SaveDrivers(drivers);
-                        Console.WriteLine("Driver Deactived Successfully");
+                        Console.WriteLine("===============================================");
+                        Console.WriteLine($"{driver.Name} {driver.Surname} Deactived Successfully");
+                        Console.WriteLine("===============================================");
                         Console.ReadKey();
                         return drivers;
                     }
@@ -80,7 +82,9 @@ public class Admin
                     {
                         vehicle.Active = false;
                         dataManager.SaveVehicles(vehicles);
-                        Console.WriteLine("Vehicel Deactivated Successfully");
+                        Console.WriteLine("===============================================");
+                        Console.WriteLine($"{vehicle.Make} {vehicle.Model} Deactivated Successfully");
+                        Console.WriteLine("===============================================");
                         Console.ReadKey();
                         return vehicles;
                     }
@@ -128,7 +132,9 @@ public class Admin
                     }
                     trips.Remove(trip);
                     dataManager.SaveTrips(trips);
+                    Console.WriteLine("=========================");
                     Console.WriteLine("Trip Removed Successfully");
+                    Console.WriteLine("=========================");
                     Console.ReadKey();
                     return trips;
                 }

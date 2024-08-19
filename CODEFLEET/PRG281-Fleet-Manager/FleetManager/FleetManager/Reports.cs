@@ -116,9 +116,9 @@ public class Reports
         Console.WriteLine($"║  OVERALL REPORT FOR TRIPS   ║");
         Console.WriteLine("╚═════════════════════════════╝");
 
-        Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════╗");
+        Console.WriteLine("╔══════════╦══════════════╦═══════════════════════════╦═══════════╦══════════════════╗");
         Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║           Driver          ║ Distance  ║  Fuel Efficiency ║");
-        Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+        Console.WriteLine("╠══════════╬══════════════╬═══════════════════════════╬═══════════╬══════════════════╣");
         foreach (var trip in trips)
         {
             string DriverFullName = "";
@@ -133,7 +133,7 @@ public class Reports
             Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
 
         }
-        Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+        Console.WriteLine("╚══════════╩══════════════╩═══════════════════════════╩═══════════╩══════════════════╝");
         Console.WriteLine("Press Any Key To Continue:");
         Console.ReadKey();
 
@@ -167,9 +167,9 @@ public class Reports
                 int tripCount = 0;
 
                 Console.WriteLine($"{driver.DisplayFullname().ToUpper()}:\n");
-                Console.WriteLine("╔═════════════════════════════════════════════════════════╗");
+                Console.WriteLine("╔══════════╦══════════════╦════════════╦══════════════════╗");
                 Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║  Distance  ║  Fuel Efficiency ║");
-                Console.WriteLine("╚═════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╠══════════╬══════════════╬════════════╬══════════════════╣");
                 foreach (var trip in driverTrips)
                 {
                     Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║  {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
@@ -177,7 +177,7 @@ public class Reports
                     totalFuelEfficiency += trip.FuelEfficiency;
                     tripCount++;
                 }
-                Console.WriteLine("╚═════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╚══════════╩══════════════╩════════════╩══════════════════╝");
                 Console.WriteLine("        ╔══════════════════════════════════════════╗");
                 Console.WriteLine("        ║ SUMMARY:                                 ║");
                 Console.WriteLine($"        ║    Total Distance: {totalDistance:0000.00} km            ║");
@@ -219,9 +219,9 @@ public class Reports
 
                 Console.WriteLine($"{vehicle.VehicleLicence.ToUpper()}:\n");
 
-                Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════╗");
+                Console.WriteLine("╔══════════╦══════════════╦═══════════════════════════╦═══════════╦══════════════════╗");
                 Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║           Driver          ║ Distance  ║  Fuel Efficiency ║");
-                Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╠══════════╬══════════════╬═══════════════════════════╬═══════════╬══════════════════╣");
                 foreach (var trip in trips)
                 {
                     if (trip.VehicleId == vehicle.VehicleId)
@@ -242,7 +242,7 @@ public class Reports
                         tripCount++;
                     }
                 }
-                Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╚══════════╩══════════════╩═══════════════════════════╩═══════════╩══════════════════╝");
                 Console.WriteLine("                     ╔══════════════════════════════════════════╗");
                 Console.WriteLine("                     ║ SUMMARY:                                 ║");
                 Console.WriteLine($"                     ║    Total Distance: {totalDistance:0000.00} km            ║");
@@ -267,9 +267,9 @@ public class Reports
         Console.WriteLine($"║  DAILY REPORT FOR TRIPS ({today:dd/MM/yyyy}):  ║");
         Console.WriteLine("╚════════════════════════════════════════╝");
 
-        Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════╗");
+        Console.WriteLine("╔══════════╦══════════════╦═══════════════════════════╦═══════════╦══════════════════╗");
         Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║           Driver          ║ Distance  ║  Fuel Efficiency ║");
-        Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+        Console.WriteLine("╠══════════╬══════════════╬═══════════════════════════╬═══════════╬══════════════════╣");
         foreach (var trip in trips)
         {
             if (trip.Date == DateTime.Today)
@@ -288,7 +288,7 @@ public class Reports
 
             }
         }
-        Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+        Console.WriteLine("╚══════════╩══════════════╩═══════════════════════════╩═══════════╩══════════════════╝");
         Console.WriteLine("Press Any Key To Continue:");
         Console.ReadKey();
 
@@ -303,9 +303,9 @@ public class Reports
         Console.WriteLine($"║  WEEKLY REPORT FOR DRIVERS ({oneWeekAgo:dd/MM/yyyy} - {DateTime.Today:dd/MM/yyyy}):  ║");
         Console.WriteLine("╚════════════════════════════════════════════════════════╝");
 
-        Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════╗");
+        Console.WriteLine("╔══════════╦══════════════╦═══════════════════════════╦═══════════╦══════════════════╗");
         Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║           Driver          ║ Distance  ║  Fuel Efficiency ║");
-        Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+        Console.WriteLine("╠══════════╬══════════════╬═══════════════════════════╬═══════════╬══════════════════╣");
         foreach (var trip in trips)
         {
 
@@ -325,7 +325,7 @@ public class Reports
 
             }
         }
-        Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+        Console.WriteLine("╚══════════╩══════════════╩═══════════════════════════╩═══════════╩══════════════════╝");
         Console.WriteLine("Press Any Key To Continue:");
         Console.ReadKey();
     }
@@ -360,9 +360,10 @@ public class Reports
         Console.WriteLine($"║  MONTHLY REPORT FOR DRIVERS ({monthName.ToUpper(),9}): ║");
         Console.WriteLine("╚══════════════════════════════════════════╝");
 
-        Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════╗");
+        Console.WriteLine("╔══════════╦══════════════╦═══════════════════════════╦═══════════╦══════════════════╗");
         Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║           Driver          ║ Distance  ║  Fuel Efficiency ║");
-        Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+        Console.WriteLine("╠══════════╬══════════════╬═══════════════════════════╬═══════════╬══════════════════╣");
+
         foreach (var trip in trips)
         {
 
@@ -382,7 +383,7 @@ public class Reports
 
             }
         }
-        Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+        Console.WriteLine("╚══════════╩══════════════╩═══════════════════════════╩═══════════╩══════════════════╝");
         Console.WriteLine("Press Any Key To Continue:");
         Console.ReadKey();
     }
@@ -416,9 +417,9 @@ public class Reports
                 int tripCount = 0;
 
                 Console.WriteLine($"{driver.DisplayFullname().ToUpper()}:\n");
-                Console.WriteLine("╔═════════════════════════════════════════════════════════╗");
+                Console.WriteLine("╔══════════╦══════════════╦════════════╦══════════════════╗");
                 Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║  Distance  ║  Fuel Efficiency ║");
-                Console.WriteLine("╚═════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╠══════════╬══════════════╬════════════╬══════════════════╣");
                 foreach (var trip in driverTrips)
                 {
                     Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║  {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
@@ -426,7 +427,7 @@ public class Reports
                     totalFuelEfficiency += trip.FuelEfficiency;
                     tripCount++;
                 }
-                Console.WriteLine("╚═════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╚══════════╩══════════════╩════════════╩══════════════════╝");
                 Console.WriteLine("        ╔══════════════════════════════════════════╗");
                 Console.WriteLine("        ║ SUMMARY:                                 ║");
                 Console.WriteLine($"        ║    Total Distance: {totalDistance:0000.00} km            ║");
@@ -475,9 +476,9 @@ public class Reports
                 int tripCount = 0;
 
                 Console.WriteLine($"{driver.DisplayFullname().ToUpper()}:\n");
-                Console.WriteLine("╔═════════════════════════════════════════════════════════╗");
+                Console.WriteLine("╔══════════╦══════════════╦════════════╦══════════════════╗");
                 Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║  Distance  ║  Fuel Efficiency ║");
-                Console.WriteLine("╚═════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╠══════════╬══════════════╬════════════╬══════════════════╣");
                 foreach (var trip in driverTrips)
                 {
                     Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║  {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
@@ -485,7 +486,8 @@ public class Reports
                     totalFuelEfficiency += trip.FuelEfficiency;
                     tripCount++;
                 }
-                Console.WriteLine("╚═════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╚══════════╩══════════════╩════════════╩══════════════════╝");
+
                 Console.WriteLine("        ╔══════════════════════════════════════════╗");
                 Console.WriteLine("        ║ SUMMARY:                                 ║");
                 Console.WriteLine($"        ║    Total Distance: {totalDistance:0000.00} km            ║");
@@ -553,9 +555,10 @@ public class Reports
                     int tripCount = 0;
 
                     Console.WriteLine($"{driver.DisplayFullname().ToUpper()}:\n");
-                    Console.WriteLine("╔═════════════════════════════════════════════════════════╗");
+                    Console.WriteLine("╔══════════╦══════════════╦════════════╦══════════════════╗");
                     Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║  Distance  ║  Fuel Efficiency ║");
-                    Console.WriteLine("╚═════════════════════════════════════════════════════════╝");
+                    Console.WriteLine("╠══════════╬══════════════╬════════════╬══════════════════╣");
+
                     foreach (var trip in driverTrips)
                     {
                         Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║  {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
@@ -563,7 +566,7 @@ public class Reports
                         totalFuelEfficiency += trip.FuelEfficiency;
                         tripCount++;
                     }
-                    Console.WriteLine("╚═════════════════════════════════════════════════════════╝");
+                    Console.WriteLine("╚══════════╩══════════════╩════════════╩══════════════════╝");
                     Console.WriteLine("        ╔══════════════════════════════════════════╗");
                     Console.WriteLine("        ║ SUMMARY:                                 ║");
                     Console.WriteLine($"        ║    Total Distance: {totalDistance:0000.00} km            ║");
@@ -699,9 +702,9 @@ public class Reports
 
                 Console.WriteLine($"{vehicle.VehicleLicence.ToUpper()}:\n");
 
-                Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════╗");
+                Console.WriteLine("╔══════════╦══════════════╦═══════════════════════════╦═══════════╦══════════════════╗");
                 Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║           Driver          ║ Distance  ║  Fuel Efficiency ║");
-                Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╠══════════╬══════════════╬═══════════════════════════╬═══════════╬══════════════════╣");
                 foreach (var trip in trips)
                 {
                     if (trip.VehicleId == vehicle.VehicleId)
@@ -722,7 +725,7 @@ public class Reports
                         tripCount++;
                     }
                 }
-                Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╚══════════╩══════════════╩═══════════════════════════╩═══════════╩══════════════════╝");
 
 
                 Console.WriteLine("                     ╔══════════════════════════════════════════╗");
@@ -765,9 +768,9 @@ public class Reports
 
                 Console.WriteLine($"{vehicle.VehicleLicence.ToUpper()}:\n");
 
-                Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════╗");
+                Console.WriteLine("╔══════════╦══════════════╦═══════════════════════════╦═══════════╦══════════════════╗");
                 Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║           Driver          ║ Distance  ║  Fuel Efficiency ║");
-                Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╠══════════╬══════════════╬═══════════════════════════╬═══════════╬══════════════════╣");
                 foreach (var trip in trips)
                 {
                     if (trip.VehicleId == vehicle.VehicleId)
@@ -788,7 +791,7 @@ public class Reports
                         tripCount++;
                     }
                 }
-                Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╚══════════╩══════════════╩═══════════════════════════╩═══════════╩══════════════════╝");
 
 
                 Console.WriteLine("                     ╔══════════════════════════════════════════╗");
@@ -850,9 +853,9 @@ public class Reports
 
                 Console.WriteLine($"{vehicle.VehicleLicence.ToUpper()}:\n");
 
-                Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════╗");
+                Console.WriteLine("╔══════════╦══════════════╦═══════════════════════════╦═══════════╦══════════════════╗");
                 Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║           Driver          ║ Distance  ║  Fuel Efficiency ║");
-                Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╠══════════╬══════════════╬═══════════════════════════╬═══════════╬══════════════════╣");
                 foreach (var trip in trips)
                 {
                     if (trip.VehicleId == vehicle.VehicleId)
@@ -873,7 +876,7 @@ public class Reports
                         tripCount++;
                     }
                 }
-                Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.WriteLine("╚══════════╩══════════════╩═══════════════════════════╩═══════════╩══════════════════╝");
 
 
                 Console.WriteLine("                     ╔══════════════════════════════════════════╗");

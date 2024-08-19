@@ -113,26 +113,42 @@ public class UserManagement
         List<Vehicle> vehicles = dataManager.LoadVehicles();
         Console.Clear();
 
-        Console.WriteLine("╔═════════════════════════════════════════╗");
-        Console.WriteLine("║               Activate Users            ║");
-        Console.WriteLine("╚═════════════════════════════════════════╝");
+        Console.WriteLine("╔══════════════════════════════════════════╗");
+        Console.WriteLine("║               Activate Users             ║");
+        Console.WriteLine("╚══════════════════════════════════════════╝");
+        Console.WriteLine(" ╔═══════════╦════════════════════════════╗");
+        Console.WriteLine(" ║ User Num  ║          User Name         ║");
+        Console.WriteLine(" ╠═══════════╬════════════════════════════╣");
+
         foreach (var user in users)
         {
             if (user.Active == true)
             {
-                Console.WriteLine($"|| User Number: {user.UserNo} || User Name: {user.Name}  {user.Surname}||");
+                Console.WriteLine($" ║   {user.UserNo,3}     ║   {user.DisplayFullname(),20}     ║");
             }
         }
-        Console.WriteLine("╔═════════════════════════════════════════╗");
-        Console.WriteLine("║             Inactivate Users            ║");
-        Console.WriteLine("╚═════════════════════════════════════════╝");
+
+        Console.WriteLine(" ╚═══════════╩════════════════════════════╝\n");
+
+
+        Console.WriteLine("╔══════════════════════════════════════════╗");
+        Console.WriteLine("║             Inactivate Users             ║");
+        Console.WriteLine("╚══════════════════════════════════════════╝");
+        Console.WriteLine(" ╔═══════════╦════════════════════════════╗");
+        Console.WriteLine(" ║ User Num  ║          User Name         ║");
+        Console.WriteLine(" ╠═══════════╬════════════════════════════╣");
+
         foreach (var user in users)
         {
             if (user.Active == false)
             {
-                Console.WriteLine($"|| User Number: {user.UserNo} || User Name: {user.Name}  {user.Surname}||");
+                Console.WriteLine($" ║   {user.UserNo,3}     ║   {user.DisplayFullname(),20}     ║");
+
             }
         }
+
+        Console.WriteLine(" ╚═══════════╩════════════════════════════╝\n");
+
 
         Console.Write("Choose A user by ID: ");
         string input = Console.ReadLine();
@@ -152,7 +168,9 @@ public class UserManagement
                     {
                         user.Active = false;
                         dataManager.SaveUser(users);
+                        Console.WriteLine("=============================");
                         Console.WriteLine("User Successfully Deactivated");
+                        Console.WriteLine("=============================");
                         Console.ReadKey();
                         break;
                     }
@@ -160,7 +178,9 @@ public class UserManagement
                     {
                         user.Active = true;
                         dataManager.SaveUser(users);
-                        Console.WriteLine("User Successfully Deactivated");
+                        Console.WriteLine("=============================");
+                        Console.WriteLine("User Successfully Reactivated");
+                        Console.WriteLine("=============================");
                         Console.ReadKey();
                         break;
                     }
