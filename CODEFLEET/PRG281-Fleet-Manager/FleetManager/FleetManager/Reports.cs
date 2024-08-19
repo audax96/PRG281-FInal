@@ -932,14 +932,28 @@ public class Reports
                         {
                             foreach (var vehicle in vehicles)
                             {
-
                                 if (vehicle.VehicleId == choice)
                                 {
-                                    selectedVehicles.Add(vehicle);
-                                    Console.WriteLine("Selected Vehicle Added To List!");
-                                    Console.ReadKey();
-                                    found = true;
-                                    break;
+                                    bool exist = false;
+                                    foreach (var selectedVehicle in selectedVehicles)
+                                    {
+                                        if (selectedVehicle.VehicleId == vehicle.VehicleId)
+                                        {
+                                            Console.WriteLine("Vehicel aready added to the list!");
+                                            Console.ReadKey();
+                                            found = true;
+                                            exist = true;
+                                            break;
+                                        }
+                                    }
+                                    if (!exist)
+                                    {
+                                        selectedVehicles.Add(vehicle);
+                                        Console.WriteLine("Selected Vehicle Added To List!");
+                                        Console.ReadKey();
+                                        found = true;
+                                        break;
+                                    }
                                 }
                             }
                         }

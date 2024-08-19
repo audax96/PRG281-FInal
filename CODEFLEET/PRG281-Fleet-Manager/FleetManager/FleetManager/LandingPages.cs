@@ -100,14 +100,11 @@ public class LandingPages
             case "1":
                 DisplayReports(drivers, trips, vehicles);
                 return true;
-                break;
             case "0":
                 return false;
-                break;
             default:
                 Console.WriteLine("Invalid option. Please try again.");
                 return true;
-                break;
         }
     }
 
