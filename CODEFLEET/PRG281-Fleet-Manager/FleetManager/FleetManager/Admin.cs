@@ -118,7 +118,7 @@ public class Admin : Entity
             {
                 if (dateToRemove == trip.Date)
                 {
-                    Console.WriteLine($"Trip ID: {trip.TripId}, Vehicle ID: {trip.VehicleId}, Distance: {trip.CalculateDistance()} km, Fuel Used: {trip.FuelUsed} L, Date: {trip.Date}");
+                    Console.WriteLine($"Trip ID: {trip.TripId}, Vehicle ID: {trip.VehicleId}, Distance: {trip.Distance} km, Fuel Used: {trip.FuelUsed} L, Date: {trip.Date}");
                 }
                 if (tripNumber == trip.TripId)
                 {
@@ -283,7 +283,7 @@ public class Admin : Entity
                     TripNumber = trip.TripId,
                     KMsLogged = trip.Distance,
                     Handled = false,
-                    CostOfTrip = trip.CalculateDistance(),
+                    CostOfTrip = trip.CalculateCost(),
                     DateOfTrip = trip.Date
                 };
                 finances.Add(finance);
