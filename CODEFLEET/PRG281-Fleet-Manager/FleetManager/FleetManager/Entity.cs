@@ -4,4 +4,9 @@ public class Entity
     {
         Console.WriteLine("Add Your Entities here:");
     }
+
+    public void DeactivateEntity()
+    {
+        
+    }
 }

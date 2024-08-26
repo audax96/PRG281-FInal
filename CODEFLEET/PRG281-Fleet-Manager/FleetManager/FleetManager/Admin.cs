@@ -3,7 +3,7 @@ using System.Globalization;
 public class Admin : Entity
 {
 
-    public static List<Driver> RemoveDriver(List<Driver> drivers)
+    public static List<Driver> DeactivateEntity(List<Driver> drivers)
     {
         DataManager dataManager = new();
         while (true)

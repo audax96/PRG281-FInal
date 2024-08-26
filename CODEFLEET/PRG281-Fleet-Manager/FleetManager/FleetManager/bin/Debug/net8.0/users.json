@@ -38,5 +38,15 @@
     "Role": 4,
     "Password": "DF2MQ1PFDRvteuBDwpfw/A==",
     "Active": true
+  },
+  {
+    "UserNo": 4,
+    "UserID": "0311025023087",
+    "Name": "Kassie",
+    "Surname": "Viljoen",
+    "Email": "kassie.viljoen@gmail.com",
+    "Role": 3,
+    "Password": "81Yk3yuxym85wlDRhegB9Q==",
+    "Active": true
   }
 ]

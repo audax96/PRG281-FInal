@@ -79,9 +79,9 @@ public class LandingPages : IDisplay
 
                 case "4": vehicles = Admin.RemoveVehicle(vehicles); break;
 
-                case "5": drivers = Admin.RemoveDriver(drivers); break;
+                case "5": drivers = Admin.DeactivateEntity(drivers); break;
 
-                case "6": users = UserManagement.DeactivateUser(users); break;
+                case "6": users = UserManagement.DeactivateEntity(users); break;
 
                 case "7": trips = Admin.RemoveTrip(trips); break;
 

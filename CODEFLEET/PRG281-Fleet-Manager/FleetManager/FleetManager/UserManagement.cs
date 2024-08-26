@@ -143,7 +143,7 @@ public class UserManagement : Entity
 
     }
 
-    public static List<User> DeactivateUser(List<User> users)
+    public static List<User> DeactivateEntity(List<User> users)
     {
         DataManager dataManager = new DataManager();
         List<Vehicle> vehicles = dataManager.LoadVehicles();
