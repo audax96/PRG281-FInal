@@ -136,7 +136,7 @@ public class Reports
                 }
             }
 
-            Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
+            Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.Distance,5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
 
         }
         Console.WriteLine("╚══════════╩══════════════╩═══════════════════════════╩═══════════╩══════════════════╝");
@@ -178,7 +178,7 @@ public class Reports
                 Console.WriteLine("╠══════════╬══════════════╬════════════╬══════════════════╣");
                 foreach (var trip in driverTrips)
                 {
-                    Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║  {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
+                    Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║  {trip.Distance,5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
                     totalDistance += trip.Distance;
                     totalFuelEfficiency += trip.FuelEfficiency;
                     tripCount++;
@@ -242,7 +242,7 @@ public class Reports
                         }
 
 
-                        Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
+                        Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.Distance,5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
                         totalDistance += trip.Distance;
                         totalFuelEfficiency += trip.FuelEfficiency;
                         tripCount++;
@@ -290,7 +290,7 @@ public class Reports
                 }
 
 
-                Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
+                Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.Distance,5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
 
             }
         }
@@ -327,7 +327,7 @@ public class Reports
                 }
 
 
-                Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
+                Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.Distance,5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
 
             }
         }
@@ -385,7 +385,7 @@ public class Reports
                 }
 
 
-                Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
+                Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.Distance,5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
 
             }
         }
@@ -428,7 +428,7 @@ public class Reports
                 Console.WriteLine("╠══════════╬══════════════╬════════════╬══════════════════╣");
                 foreach (var trip in driverTrips)
                 {
-                    Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║  {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
+                    Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║  {trip.Distance,5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
                     totalDistance += trip.Distance;
                     totalFuelEfficiency += trip.FuelEfficiency;
                     tripCount++;
@@ -487,7 +487,7 @@ public class Reports
                 Console.WriteLine("╠══════════╬══════════════╬════════════╬══════════════════╣");
                 foreach (var trip in driverTrips)
                 {
-                    Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║  {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
+                    Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║  {trip.Distance,5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
                     totalDistance += trip.Distance;
                     totalFuelEfficiency += trip.FuelEfficiency;
                     tripCount++;
@@ -567,7 +567,7 @@ public class Reports
 
                     foreach (var trip in driverTrips)
                     {
-                        Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║  {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
+                        Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║  {trip.Distance,5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
                         totalDistance += trip.Distance;
                         totalFuelEfficiency += trip.FuelEfficiency;
                         tripCount++;
@@ -725,7 +725,7 @@ public class Reports
                         }
 
 
-                        Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
+                        Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.Distance,5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
                         totalDistance += trip.Distance;
                         totalFuelEfficiency += trip.FuelEfficiency;
                         tripCount++;
@@ -791,7 +791,7 @@ public class Reports
                         }
 
 
-                        Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
+                        Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.Distance,5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
                         totalDistance += trip.Distance;
                         totalFuelEfficiency += trip.FuelEfficiency;
                         tripCount++;
@@ -876,7 +876,7 @@ public class Reports
                         }
 
 
-                        Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.CalculateDistance(),5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
+                        Console.WriteLine($"║ {trip.TripId,6}   ║  {trip.VehicleId,5}       ║   {DriverFullName,20}    ║ {trip.Distance,5} km  ║    {trip.FuelEfficiency:00.00} L/km    ║");
                         totalDistance += trip.Distance;
                         totalFuelEfficiency += trip.FuelEfficiency;
                         tripCount++;

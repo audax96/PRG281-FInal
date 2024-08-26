@@ -11,7 +11,6 @@ public class Trip : Entity
     public double FuelEfficiency { get; set; }  // New property for fuel efficiency
     public DateTime Date { get; set; }
     public double PricePerLiter { get; set; }
-
     public double Distance { get; set; }
 
     static DataManager dataManager = new DataManager();
@@ -19,8 +18,19 @@ public class Trip : Entity
 
     public double CalculateDistance()
     {
+        if (EndOdometer < StartOdometer)
+        {
+            throw new InvalidOdometerReadingException("End odometer reading cannot be less than start odometer reading.");
+        }
         return EndOdometer - StartOdometer;
     }
+
+    public double CalculateCost()
+    {
+        double cost = Distance * PricePerLiter;
+        return cost;
+    }
+
 
     public static void AddEntity(List<Vehicle> vehicles, List<Trip> trips, DataManager dataManager)
     {
@@ -136,8 +146,15 @@ public class Trip : Entity
             FuelEfficiency = fuelEfficiency,
             Date = date,
             PricePerLiter = pricePerLiter,
-            Distance = endOdometer - startOdometer,
         };
+        try
+        {
+            trip.Distance = trip.CalculateDistance();
+        }
+        catch (InvalidOdometerReadingException ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
 
         // Add the trip to the list and save to the JSON file
         trips.Add(trip);
@@ -153,6 +170,10 @@ public class Trip : Entity
     }
 
 
+
 }
 
-
+public class InvalidOdometerReadingException : Exception
+{
+    public InvalidOdometerReadingException(string message) : base(message) { }
+}
