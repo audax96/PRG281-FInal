@@ -1,10 +1,12 @@
-public class LandingPages
+public class LandingPages : IDisplay
+
 {
     static DataManager dataManager = new DataManager();
     Admin admin = new Admin();
 
 
-    public static bool AdminLanding(List<Trip> trips, List<Vehicle> vehicles, List<Driver> drivers, List<User> users, List<Finance> finance, string loggedInName)
+    
+    public  bool AdminLanding(List<Trip> trips, List<Vehicle> vehicles, List<Driver> drivers, List<User> users, List<Finance> finance, string loggedInName)
     {
         Console.Clear();
         Console.WriteLine("╔═════════════════════════════════════════╗");
@@ -27,7 +29,7 @@ public class LandingPages
                 return true;
                 break;
             case "2":
-                Trip.LogTrip(vehicles, trips, dataManager);
+                Trip.AddEntity(vehicles, trips, dataManager);
                 return true;
                 break;
             case "3":
@@ -71,9 +73,9 @@ public class LandingPages
             {
                 case "1": Admin.AddVehicle(vehicles, dataManager); break;
 
-                case "2": Admin.AddDriver(drivers, dataManager); break;
+                case "2": Admin.AddEntity(drivers, dataManager); break;
 
-                case "3": UserManagement.CreateUser(users); break;
+                case "3": UserManagement.AddEntity(users); break;
 
                 case "4": vehicles = Admin.RemoveVehicle(vehicles); break;
 
@@ -91,7 +93,7 @@ public class LandingPages
             }
         }
     }
-    public static bool DriverLanding(List<Driver> drivers, List<Trip> trips, List<Vehicle> vehicles, string loggedInName)
+    public  bool DriverLanding(List<Driver> drivers, List<Trip> trips, List<Vehicle> vehicles, string loggedInName)
     {
         Console.Clear();
         Console.WriteLine("╔═════════════════════════════════════════╗");
@@ -149,7 +151,7 @@ public class LandingPages
 
     }
 
-    public static void FinanceLanding(List<Finance> finances, List<Trip> trips, string loggedInName)
+    public  void FinanceLanding(List<Finance> finances, List<Trip> trips, string loggedInName)
     {
         while (true)
         {
@@ -202,7 +204,9 @@ public class LandingPages
 
             Console.Write("Enter Trip Number Once handled (Enter '0' to Exit): ");
             if (int.TryParse(Console.ReadLine(), out int handled))
-            {
+            {  bool exit =false;
+                if (handled > 0)
+                {
                 var record = finances.FirstOrDefault(r => r.TripNumber == handled);
                 if (record != null)
                 {
@@ -211,21 +215,23 @@ public class LandingPages
                     Console.WriteLine($"Trip {record.TripNumber} has been handled. Press Enter to continue:");
                     Console.ReadKey();
                 }
-                else if (handled == 0)
-                {
-                    Console.WriteLine("exit");
-                    Console.ReadKey();
-                    return;
-                }
                 else
                 {
                     Console.WriteLine("Trip number not found.");
+                }
+                }
+                else
+                {
+                    return;
                 }
             }
             else
             {
                 Console.WriteLine("Invalid input. Please enter a valid trip number.");
+                Console.ReadKey();
             }
         }
     }
+
+   
 }

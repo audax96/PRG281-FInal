@@ -1,1 +1,58 @@
-[{"TripNumber":1,"CostOfTrip":1050,"KMsLogged":1050,"DateOfTrip":"2024-08-19T00:00:00","Handled":true},{"TripNumber":4,"CostOfTrip":672,"KMsLogged":672,"DateOfTrip":"2024-08-19T00:00:00","Handled":true},{"TripNumber":3,"CostOfTrip":217,"KMsLogged":217,"DateOfTrip":"2024-08-19T00:00:00","Handled":false},{"TripNumber":5,"CostOfTrip":569,"KMsLogged":569,"DateOfTrip":"2024-08-19T00:00:00","Handled":false},{"TripNumber":2,"CostOfTrip":148,"KMsLogged":148,"DateOfTrip":"2024-08-18T00:00:00","Handled":false},{"TripNumber":6,"CostOfTrip":68,"KMsLogged":68,"DateOfTrip":"2024-08-19T00:00:00","Handled":false},{"TripNumber":9,"CostOfTrip":79,"KMsLogged":79,"DateOfTrip":"2024-08-19T00:00:00","Handled":false},{"TripNumber":7,"CostOfTrip":100,"KMsLogged":100,"DateOfTrip":"2024-08-19T00:00:00","Handled":true}]
+[
+  {
+    "TripNumber": 1,
+    "CostOfTrip": 1050,
+    "KMsLogged": 1050,
+    "DateOfTrip": "2024-08-19T00:00:00",
+    "Handled": true
+  },
+  {
+    "TripNumber": 4,
+    "CostOfTrip": 672,
+    "KMsLogged": 672,
+    "DateOfTrip": "2024-08-19T00:00:00",
+    "Handled": true
+  },
+  {
+    "TripNumber": 3,
+    "CostOfTrip": 217,
+    "KMsLogged": 217,
+    "DateOfTrip": "2024-08-19T00:00:00",
+    "Handled": true
+  },
+  {
+    "TripNumber": 5,
+    "CostOfTrip": 569,
+    "KMsLogged": 569,
+    "DateOfTrip": "2024-08-19T00:00:00",
+    "Handled": false
+  },
+  {
+    "TripNumber": 2,
+    "CostOfTrip": 148,
+    "KMsLogged": 148,
+    "DateOfTrip": "2024-08-18T00:00:00",
+    "Handled": true
+  },
+  {
+    "TripNumber": 6,
+    "CostOfTrip": 68,
+    "KMsLogged": 68,
+    "DateOfTrip": "2024-08-19T00:00:00",
+    "Handled": false
+  },
+  {
+    "TripNumber": 9,
+    "CostOfTrip": 79,
+    "KMsLogged": 79,
+    "DateOfTrip": "2024-08-19T00:00:00",
+    "Handled": false
+  },
+  {
+    "TripNumber": 7,
+    "CostOfTrip": 100,
+    "KMsLogged": 100,
+    "DateOfTrip": "2024-08-19T00:00:00",
+    "Handled": true
+  }
+]

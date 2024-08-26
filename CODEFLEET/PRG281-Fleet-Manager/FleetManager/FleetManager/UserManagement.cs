@@ -1,8 +1,12 @@
 using System.Numerics;
 
-public class UserManagement
+public class UserManagement : Entity
 {
     public static DataManager dataManager = new();
+
+    public static event Action? LoggedIn;
+    public static event Action? Error;
+
 
     public static int Login(List<User> users, ref string loggedInName)
     {
@@ -10,7 +14,6 @@ public class UserManagement
         while (!valid)
         {
             Console.Clear();
-            Console.WriteLine("         Welcome to Fleet Manager");
             Console.WriteLine("╔═════════════════════════════════════════╗");
             Console.WriteLine("║                 LOGIN                   ║");
             Console.WriteLine("╚═════════════════════════════════════════╝");
@@ -19,43 +22,47 @@ public class UserManagement
             Console.Write("Password: ");
             string password = GetPassword();
             bool active = true;
-            foreach (var user in users)
-            {
-                if (email == user.Email)
+                foreach (var user in users)
                 {
-                    if (password == user.Password)
+                    if (email == user.Email)
                     {
-                        if (user.Active == true)
+                        if (password == user.Password)
                         {
-                            // Console.WriteLine("\n=============================================\nSuccessful Login!! Press Any Key To Continue: ");
-                            // Console.ReadKey();
-                            valid = true;
-                            loggedInName = user.Name;
-                            return user.Role;
-                        }
-                        else
-                        {
-                            active = false;
+                            if (user.Active == true)
+                            {
+                                valid = true;
+                                loggedInName = user.Name;
+                                LoggedIn?.Invoke();
+                                return user.Role;
+                            }
+                            else
+                            {
+                                active = false;
+                            }
                         }
                     }
                 }
-            }
-            if (active == false)
-            {
-                Console.WriteLine("\n=============================\nUser Is Deactivated!");
-                Console.ReadKey();
-            }
-            else if (valid == false)
-            {
-                Console.Clear();
-                Console.WriteLine("\n===========================\nInvalid Email or Password. \n===========================\nEnter to continue:");
-                Console.ReadKey();
-            }
+    
+           
+            
+        
+                if (active == false)
+                {
+                    Console.WriteLine("\n=============================\nUser Is Deactivated!");
+                    Console.ReadKey();
+                }
+                else if (valid == false)
+                {
+                    Error?.Invoke();
+                }
+            
+
         }
         return 0;
     }
 
-    public static void CreateUser(List<User> users)
+
+    public static void AddEntity(List<User> users)
     {
         Console.Clear();
         Console.WriteLine("╔═════════════════════════════════════════╗");
@@ -85,7 +92,6 @@ public class UserManagement
             User lastUser = users.Last();
             lastUserNo = lastUser.UserNo;
         }
-
         User user = new User
         {
             UserNo = lastUserNo + 1,
@@ -97,13 +103,43 @@ public class UserManagement
             Password = password,
             Active = true,
         };
-        users.Add(user);
-        dataManager.SaveUser(users);
-        Console.WriteLine("\n====================================");
-        Console.WriteLine($"{user.Name} {user.Surname} added successfully!");
-        Console.WriteLine("====================================");
-        Console.ReadKey();
-
+        bool format = false;
+        if (id.Length == 13)
+        {
+            if (password.Length > 6)
+            {
+                if (email.Contains("@") && email.Contains("."))
+                {
+                    users.Add(user);
+                    dataManager.SaveUser(users);
+                    Console.WriteLine("\n====================================");
+                    Console.WriteLine($"{user.Name} {user.Surname} added successfully!");
+                    Console.WriteLine("====================================");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.WriteLine("\n====================================");
+                    Console.WriteLine($"Email is invalid!");
+                    Console.WriteLine("====================================");
+                    Console.ReadKey();
+                }
+            }
+            else
+            {
+                Console.WriteLine("\n====================================");
+                Console.WriteLine($"Password must be longer than 6 characters!");
+                Console.WriteLine("====================================");
+                Console.ReadKey();
+            }
+        }
+        else
+        {
+            Console.WriteLine("\n====================================");
+            Console.WriteLine($"ID number does not contain 13 degits!");
+            Console.WriteLine("====================================");
+            Console.ReadKey();
+        }
 
     }
 

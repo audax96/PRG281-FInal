@@ -10,7 +10,9 @@ public class Reports
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("REPORTS:");
+            Console.WriteLine("╔═════════════════════════════════════════╗");
+            Console.WriteLine("║                  Reports                ║");
+            Console.WriteLine("╚═════════════════════════════════════════╝");
             Console.WriteLine("1. Daily");
             Console.WriteLine("2. Weekly");
             Console.WriteLine("3. Monthly");
@@ -45,7 +47,9 @@ public class Reports
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("REPORTS:");
+            Console.WriteLine("╔═════════════════════════════════════════╗");
+            Console.WriteLine("║              Driver   Reports           ║");
+            Console.WriteLine("╚═════════════════════════════════════════╝");
             Console.WriteLine("1. Daily");
             Console.WriteLine("2. Weekly");
             Console.WriteLine("3. Monthly");
@@ -81,7 +85,9 @@ public class Reports
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("REPORTS:");
+            Console.WriteLine("╔═════════════════════════════════════════╗");
+            Console.WriteLine("║                 Reports                 ║");
+            Console.WriteLine("╚═════════════════════════════════════════╝");
             Console.WriteLine("1. Daily");
             Console.WriteLine("2. Weekly");
             Console.WriteLine("3. Monthly");

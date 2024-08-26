@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-public class Trip
+public class Trip : Entity
 {
     public required int TripId { get; set; }
     public required int VehicleId { get; set; }
@@ -22,7 +22,7 @@ public class Trip
         return EndOdometer - StartOdometer;
     }
 
-    public static void LogTrip(List<Vehicle> vehicles, List<Trip> trips, DataManager dataManager)
+    public static void AddEntity(List<Vehicle> vehicles, List<Trip> trips, DataManager dataManager)
     {
         Console.Clear();
         Console.WriteLine("Select a Vehicle by Number:");

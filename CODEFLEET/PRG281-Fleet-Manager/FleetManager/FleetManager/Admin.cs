@@ -1,6 +1,6 @@
 using System.Data;
 using System.Globalization;
-public class Admin
+public class Admin : Entity
 {
 
     public static List<Driver> RemoveDriver(List<Driver> drivers)
@@ -199,7 +199,7 @@ public class Admin
         Console.ReadKey();
     }
 
-    public static void AddDriver(List<Driver> drivers, DataManager dataManager)
+    public static void AddEntity(List<Driver> drivers, DataManager dataManager)
     {
         Console.Clear();
         Console.WriteLine("╔═════════════════════════════════════════╗");
