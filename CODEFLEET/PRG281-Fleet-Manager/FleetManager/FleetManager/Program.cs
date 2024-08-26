@@ -40,6 +40,7 @@ internal class Program
             {
                 Thread.Sleep(2500);
                 keepRunning = false;
+                loadingThread.Join();
                 loggedin = landingPages.DriverLanding(drivers, trips, vehicles, loggedInName);
             }
             else if (userRole == 4)
@@ -62,10 +63,7 @@ internal class Program
             Console.WriteLine("╔═════════════════════════════════════════╗");
             Console.WriteLine("║         Loading... Fleet Manager        ║");
             Console.WriteLine("╚═════════════════════════════════════════╝");
-
-            // Add a small delay to create a "loading" effect
             Thread.Sleep(5000);
-
         }
         Console.Clear();
     }
@@ -75,15 +73,15 @@ internal class Program
         Console.Clear();
         Console.WriteLine("╔═════════════════════════════════════════╗");
         Console.WriteLine("║           Logged In Successfully        ║");
-        Console.WriteLine("╚═════════════════════════════════════════╝"); 
+        Console.WriteLine("╚═════════════════════════════════════════╝");
         Thread.Sleep(1200);
     }
 
     public static void ErrorMsg()
     {
-              Console.Clear();
-                Console.WriteLine("\n===========================\nInvalid Email or Password. \n===========================\nEnter to continue:");
-                Console.ReadKey();
+        Console.Clear();
+        Console.WriteLine("\n===========================\nInvalid Email or Password. \n===========================");
+        Thread.Sleep(2000);
     }
 
 }
