@@ -1,58 +1,352 @@
 [
   {
-    "TripNumber": 1,
-    "CostOfTrip": 1050,
-    "KMsLogged": 1050,
-    "DateOfTrip": "2024-08-19T00:00:00",
+    "TripNumber": 10,
+    "CostOfTrip": 3725,
+    "KMsLogged": 149,
+    "DateOfTrip": "2024-08-27T01:17:58",
     "Handled": true
   },
   {
-    "TripNumber": 4,
-    "CostOfTrip": 672,
-    "KMsLogged": 672,
-    "DateOfTrip": "2024-08-19T00:00:00",
+    "TripNumber": 11,
+    "CostOfTrip": 6552,
+    "KMsLogged": 273,
+    "DateOfTrip": "2024-08-28T13:06:09",
     "Handled": true
   },
   {
-    "TripNumber": 3,
-    "CostOfTrip": 217,
-    "KMsLogged": 217,
-    "DateOfTrip": "2024-08-19T00:00:00",
+    "TripNumber": 12,
+    "CostOfTrip": 3473,
+    "KMsLogged": 151,
+    "DateOfTrip": "2024-08-29T07:46:30",
     "Handled": true
   },
   {
-    "TripNumber": 5,
-    "CostOfTrip": 569,
-    "KMsLogged": 569,
-    "DateOfTrip": "2024-08-19T00:00:00",
+    "TripNumber": 13,
+    "CostOfTrip": 7618,
+    "KMsLogged": 293,
+    "DateOfTrip": "2024-08-21T21:20:28",
+    "Handled": true
+  },
+  {
+    "TripNumber": 14,
+    "CostOfTrip": 3128,
+    "KMsLogged": 136,
+    "DateOfTrip": "2024-08-30T02:18:48",
+    "Handled": true
+  },
+  {
+    "TripNumber": 15,
+    "CostOfTrip": 2472,
+    "KMsLogged": 103,
+    "DateOfTrip": "2024-08-23T03:22:57",
+    "Handled": true
+  },
+  {
+    "TripNumber": 16,
+    "CostOfTrip": 4425,
+    "KMsLogged": 177,
+    "DateOfTrip": "2024-08-30T22:02:43",
+    "Handled": true
+  },
+  {
+    "TripNumber": 17,
+    "CostOfTrip": 4375,
+    "KMsLogged": 175,
+    "DateOfTrip": "2024-08-27T09:32:41",
+    "Handled": true
+  },
+  {
+    "TripNumber": 18,
+    "CostOfTrip": 2650,
+    "KMsLogged": 106,
+    "DateOfTrip": "2024-08-22T03:26:31",
+    "Handled": true
+  },
+  {
+    "TripNumber": 19,
+    "CostOfTrip": 2860,
+    "KMsLogged": 110,
+    "DateOfTrip": "2024-08-25T08:07:23",
     "Handled": false
   },
   {
-    "TripNumber": 2,
-    "CostOfTrip": 148,
-    "KMsLogged": 148,
-    "DateOfTrip": "2024-08-18T00:00:00",
-    "Handled": true
-  },
-  {
-    "TripNumber": 6,
-    "CostOfTrip": 68,
-    "KMsLogged": 68,
-    "DateOfTrip": "2024-08-19T00:00:00",
+    "TripNumber": 20,
+    "CostOfTrip": 3614,
+    "KMsLogged": 139,
+    "DateOfTrip": "2024-08-24T17:56:59",
     "Handled": false
   },
   {
-    "TripNumber": 9,
-    "CostOfTrip": 79,
-    "KMsLogged": 79,
-    "DateOfTrip": "2024-08-19T00:00:00",
+    "TripNumber": 21,
+    "CostOfTrip": 5850,
+    "KMsLogged": 225,
+    "DateOfTrip": "2024-08-21T19:02:31",
     "Handled": false
   },
   {
-    "TripNumber": 7,
-    "CostOfTrip": 100,
-    "KMsLogged": 100,
-    "DateOfTrip": "2024-08-19T00:00:00",
+    "TripNumber": 22,
+    "CostOfTrip": 6025,
+    "KMsLogged": 241,
+    "DateOfTrip": "2024-08-28T08:28:24",
+    "Handled": false
+  },
+  {
+    "TripNumber": 23,
+    "CostOfTrip": 3172,
+    "KMsLogged": 122,
+    "DateOfTrip": "2024-08-22T23:05:06",
+    "Handled": false
+  },
+  {
+    "TripNumber": 24,
+    "CostOfTrip": 5976,
+    "KMsLogged": 249,
+    "DateOfTrip": "2024-08-22T05:52:53",
+    "Handled": false
+  },
+  {
+    "TripNumber": 25,
+    "CostOfTrip": 4238,
+    "KMsLogged": 163,
+    "DateOfTrip": "2024-08-27T00:22:52",
+    "Handled": false
+  },
+  {
+    "TripNumber": 26,
+    "CostOfTrip": 2834,
+    "KMsLogged": 109,
+    "DateOfTrip": "2024-08-20T11:47:39",
+    "Handled": false
+  },
+  {
+    "TripNumber": 27,
+    "CostOfTrip": 3216,
+    "KMsLogged": 134,
+    "DateOfTrip": "2024-08-24T08:17:41",
+    "Handled": false
+  },
+  {
+    "TripNumber": 28,
+    "CostOfTrip": 5075,
+    "KMsLogged": 203,
+    "DateOfTrip": "2024-08-22T20:51:52",
     "Handled": true
+  },
+  {
+    "TripNumber": 29,
+    "CostOfTrip": 5037,
+    "KMsLogged": 219,
+    "DateOfTrip": "2024-08-26T02:14:45",
+    "Handled": false
+  },
+  {
+    "TripNumber": 30,
+    "CostOfTrip": 6800,
+    "KMsLogged": 272,
+    "DateOfTrip": "2024-08-28T07:41:59",
+    "Handled": false
+  },
+  {
+    "TripNumber": 31,
+    "CostOfTrip": 4830,
+    "KMsLogged": 210,
+    "DateOfTrip": "2024-08-22T02:03:30",
+    "Handled": false
+  },
+  {
+    "TripNumber": 32,
+    "CostOfTrip": 3151,
+    "KMsLogged": 137,
+    "DateOfTrip": "2024-08-27T06:01:09",
+    "Handled": true
+  },
+  {
+    "TripNumber": 33,
+    "CostOfTrip": 6672,
+    "KMsLogged": 278,
+    "DateOfTrip": "2024-08-26T17:32:39",
+    "Handled": true
+  },
+  {
+    "TripNumber": 34,
+    "CostOfTrip": 5352,
+    "KMsLogged": 223,
+    "DateOfTrip": "2024-08-26T08:54:02",
+    "Handled": false
+  },
+  {
+    "TripNumber": 35,
+    "CostOfTrip": 2575,
+    "KMsLogged": 103,
+    "DateOfTrip": "2024-08-23T12:32:22",
+    "Handled": false
+  },
+  {
+    "TripNumber": 36,
+    "CostOfTrip": 5112,
+    "KMsLogged": 213,
+    "DateOfTrip": "2024-08-20T22:02:47",
+    "Handled": false
+  },
+  {
+    "TripNumber": 37,
+    "CostOfTrip": 3900,
+    "KMsLogged": 150,
+    "DateOfTrip": "2024-08-28T07:54:30",
+    "Handled": false
+  },
+  {
+    "TripNumber": 38,
+    "CostOfTrip": 6456,
+    "KMsLogged": 269,
+    "DateOfTrip": "2024-08-22T19:49:10",
+    "Handled": false
+  },
+  {
+    "TripNumber": 39,
+    "CostOfTrip": 3300,
+    "KMsLogged": 132,
+    "DateOfTrip": "2024-08-28T15:18:34",
+    "Handled": false
+  },
+  {
+    "TripNumber": 40,
+    "CostOfTrip": 4152,
+    "KMsLogged": 173,
+    "DateOfTrip": "2024-08-29T17:45:14",
+    "Handled": false
+  },
+  {
+    "TripNumber": 41,
+    "CostOfTrip": 4370,
+    "KMsLogged": 190,
+    "DateOfTrip": "2024-08-25T21:55:04",
+    "Handled": false
+  },
+  {
+    "TripNumber": 42,
+    "CostOfTrip": 4900,
+    "KMsLogged": 196,
+    "DateOfTrip": "2024-08-23T23:34:32",
+    "Handled": false
+  },
+  {
+    "TripNumber": 43,
+    "CostOfTrip": 4056,
+    "KMsLogged": 169,
+    "DateOfTrip": "2024-08-28T20:14:29",
+    "Handled": false
+  },
+  {
+    "TripNumber": 44,
+    "CostOfTrip": 4225,
+    "KMsLogged": 169,
+    "DateOfTrip": "2024-08-20T01:27:06",
+    "Handled": false
+  },
+  {
+    "TripNumber": 45,
+    "CostOfTrip": 7225,
+    "KMsLogged": 289,
+    "DateOfTrip": "2024-08-22T10:20:22",
+    "Handled": false
+  },
+  {
+    "TripNumber": 46,
+    "CostOfTrip": 4100,
+    "KMsLogged": 164,
+    "DateOfTrip": "2024-08-29T18:54:00",
+    "Handled": false
+  },
+  {
+    "TripNumber": 47,
+    "CostOfTrip": 3400,
+    "KMsLogged": 136,
+    "DateOfTrip": "2024-08-23T09:58:32",
+    "Handled": false
+  },
+  {
+    "TripNumber": 48,
+    "CostOfTrip": 4264,
+    "KMsLogged": 164,
+    "DateOfTrip": "2024-08-27T20:44:13",
+    "Handled": false
+  },
+  {
+    "TripNumber": 49,
+    "CostOfTrip": 7774,
+    "KMsLogged": 299,
+    "DateOfTrip": "2024-08-27T05:02:50",
+    "Handled": false
+  },
+  {
+    "TripNumber": 50,
+    "CostOfTrip": 2691,
+    "KMsLogged": 117,
+    "DateOfTrip": "2024-08-21T20:20:50",
+    "Handled": false
+  },
+  {
+    "TripNumber": 51,
+    "CostOfTrip": 6812,
+    "KMsLogged": 262,
+    "DateOfTrip": "2024-08-23T00:51:08",
+    "Handled": false
+  },
+  {
+    "TripNumber": 52,
+    "CostOfTrip": 2496,
+    "KMsLogged": 104,
+    "DateOfTrip": "2024-08-29T19:41:06",
+    "Handled": false
+  },
+  {
+    "TripNumber": 53,
+    "CostOfTrip": 2944,
+    "KMsLogged": 128,
+    "DateOfTrip": "2024-08-26T11:13:29",
+    "Handled": false
+  },
+  {
+    "TripNumber": 54,
+    "CostOfTrip": 5566,
+    "KMsLogged": 242,
+    "DateOfTrip": "2024-08-20T02:07:10",
+    "Handled": false
+  },
+  {
+    "TripNumber": 55,
+    "CostOfTrip": 6888,
+    "KMsLogged": 287,
+    "DateOfTrip": "2024-08-23T12:53:13",
+    "Handled": false
+  },
+  {
+    "TripNumber": 56,
+    "CostOfTrip": 6000,
+    "KMsLogged": 250,
+    "DateOfTrip": "2024-08-20T12:29:56",
+    "Handled": false
+  },
+  {
+    "TripNumber": 57,
+    "CostOfTrip": 6693,
+    "KMsLogged": 291,
+    "DateOfTrip": "2024-08-30T10:45:57",
+    "Handled": false
+  },
+  {
+    "TripNumber": 58,
+    "CostOfTrip": 7176,
+    "KMsLogged": 299,
+    "DateOfTrip": "2024-08-28T09:22:00",
+    "Handled": false
+  },
+  {
+    "TripNumber": 59,
+    "CostOfTrip": 5304,
+    "KMsLogged": 221,
+    "DateOfTrip": "2024-08-26T15:24:09",
+    "Handled": false
   }
 ]

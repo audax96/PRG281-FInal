@@ -305,9 +305,9 @@ public class Reports
     {
         DateTime oneWeekAgo = DateTime.Today.AddDays(-7);
         Console.Clear();
-        Console.WriteLine("╔════════════════════════════════════════════════════════╗");
-        Console.WriteLine($"║  WEEKLY REPORT FOR DRIVERS ({oneWeekAgo:dd/MM/yyyy} - {DateTime.Today:dd/MM/yyyy}):  ║");
-        Console.WriteLine("╚════════════════════════════════════════════════════════╝");
+        Console.WriteLine("╔═══════════════════════════════════════════════════════╗");
+        Console.WriteLine($"║  WEEKLY REPORT FOR Trips ({oneWeekAgo:dd/MM/yyyy} - {DateTime.Today:dd/MM/yyyy}):   ║");
+        Console.WriteLine("╚═══════════════════════════════════════════════════════╝");
 
         Console.WriteLine("╔══════════╦══════════════╦═══════════════════════════╦═══════════╦══════════════════╗");
         Console.WriteLine("║ Trip ID  ║  Vehicle ID  ║           Driver          ║ Distance  ║  Fuel Efficiency ║");
