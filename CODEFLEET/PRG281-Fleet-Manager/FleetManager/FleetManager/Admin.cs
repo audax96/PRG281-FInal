@@ -213,7 +213,7 @@ public class Admin : Entity
         string name = Console.ReadLine();
         Console.Write("Surname: ");
         string surname = Console.ReadLine();
-        Console.Write("Date of Birth(dd/mm/yyyy): ");
+        Console.Write("Date of Birth(mm/dd/yyyy): ");
         string dob = Console.ReadLine();
         while (!valid)
         {

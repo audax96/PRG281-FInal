@@ -147,8 +147,6 @@ public class Reports
     private static void GenerateOverallReportDrivers(List<Driver> drivers, List<Trip> trips)
     {
         List<Driver> selectedDrivers = SelectDrivers(drivers);
-
-
         Console.Clear();
         Console.WriteLine("╔══════════════════════════════╗");
         Console.WriteLine($"║  OVERALL REPORT FOR DRIVERS  ║");
@@ -202,7 +200,6 @@ public class Reports
     private static void GenerateOverallReportVehicles(List<Vehicle> vehicles, List<Driver> drivers, List<Trip> trips)
     {
         List<Vehicle> selected = SelectVehicles(vehicles);
-        Console.Clear();
         Console.Clear();
         Console.WriteLine("╔═══════════════════════════════╗");
         Console.WriteLine($"║  OVERALL REPORT FOR VEHICLES  ║");
@@ -339,7 +336,6 @@ public class Reports
     async private static void GenerateMonthlyReportTrips(List<Driver> drivers, List<Trip> trips)
 
     {
-
         Console.WriteLine("Enter The Month Number You Want A Report On (January = 1):");
         int chosenMonth = 0;
         string monthName = "";
@@ -513,7 +509,6 @@ public class Reports
     private static void GenerateMonthlyReportDrivers(List<Driver> drivers, List<Trip> trips)
     {
         List<Driver> selectedDrivers = SelectDrivers(drivers);
-
         Console.WriteLine("Enter The Month Number You Want A Report On (January = 1):");
         int chosenMonth = 0;
         string monthName = "";
@@ -819,7 +814,6 @@ public class Reports
     private static void GenerateMonthlyReportVehicles(List<Vehicle> vehicles, List<Driver> drivers, List<Trip> trips)
     {
         List<Vehicle> selectedVehicles = SelectVehicles(vehicles);
-
         Console.WriteLine("Enter The Month Number You Want A Report On (January = 1):");
         int chosenMonth = 0;
         string monthName = "";

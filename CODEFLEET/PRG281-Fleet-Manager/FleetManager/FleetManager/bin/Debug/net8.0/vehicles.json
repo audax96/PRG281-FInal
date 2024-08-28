@@ -1,1 +1,202 @@
-[{"VehicleId":1,"VehicleLicence":"ZNT 123 GP","Make":"Mercedes-Benz","Model":"Actros","Year":2023,"FuelType":"Diesel","OdometerReading":12659,"Active":true},{"VehicleId":2,"VehicleLicence":"BNG 456 GP","Make":"MAN","Model":"TGX","Year":2021,"FuelType":"Diesel","OdometerReading":48164,"Active":true},{"VehicleId":3,"VehicleLicence":"LIM 789 GP","Make":"Scania","Model":"R-Series","Year":2022,"FuelType":"Diesel","OdometerReading":24445,"Active":true},{"VehicleId":4,"VehicleLicence":"MPM 012 GP","Make":"Volvo","Model":"FH16","Year":2020,"FuelType":"Diesel","OdometerReading":65539,"Active":true},{"VehicleId":5,"VehicleLicence":"KZN 345 GP","Make":"DAF","Model":"XF","Year":2021,"FuelType":"Diesel","OdometerReading":37444,"Active":true},{"VehicleId":6,"VehicleLicence":"FSH 678 GP","Make":"Freightliner","Model":"Cascadia","Year":2019,"FuelType":"Diesel","OdometerReading":85423,"Active":true},{"VehicleId":7,"VehicleLicence":"NC 901 GP","Make":"Isuzu","Model":"Giga","Year":2022,"FuelType":"Diesel","OdometerReading":16031,"Active":true},{"VehicleId":8,"VehicleLicence":"EC 234 GP","Make":"Hino","Model":"500 Series","Year":2023,"FuelType":"Diesel","OdometerReading":5000,"Active":true},{"VehicleId":9,"VehicleLicence":"WCL 567 GP","Make":"Iveco","Model":"Stralis","Year":2021,"FuelType":"Diesel","OdometerReading":30512,"Active":true},{"VehicleId":10,"VehicleLicence":"NW 890 GP","Make":"Renault","Model":"T High","Year":2020,"FuelType":"Diesel","OdometerReading":45473,"Active":true},{"VehicleId":11,"VehicleLicence":"MP 123 GP","Make":"Mercedes-Benz","Model":"Arocs","Year":2022,"FuelType":"Diesel","OdometerReading":22439,"Active":true},{"VehicleId":12,"VehicleLicence":"KZN 456 GP","Make":"MAN","Model":"TGS","Year":2023,"FuelType":"Diesel","OdometerReading":8556,"Active":true},{"VehicleId":13,"VehicleLicence":"FSH 789 GP","Make":"Scania","Model":"G-Series","Year":2021,"FuelType":"Diesel","OdometerReading":42579,"Active":true},{"VehicleId":14,"VehicleLicence":"EC 012 GP","Make":"Volvo","Model":"FMX","Year":2022,"FuelType":"Diesel","OdometerReading":19497,"Active":true},{"VehicleId":15,"VehicleLicence":"NW 345 GP","Make":"DAF","Model":"CF","Year":2020,"FuelType":"Diesel","OdometerReading":38196,"Active":true},{"VehicleId":16,"VehicleLicence":"NC 678 GP","Make":"Freightliner","Model":"Coronado","Year":2023,"FuelType":"Diesel","OdometerReading":11299,"Active":true},{"VehicleId":17,"VehicleLicence":"LIM 901 GP","Make":"Iveco","Model":"Trakker","Year":2019,"FuelType":"Diesel","OdometerReading":70680,"Active":true},{"VehicleId":18,"VehicleLicence":"MPM 234 GP","Make":"Isuzu","Model":"C\u0026E","Year":2021,"FuelType":"Diesel","OdometerReading":35242,"Active":true},{"VehicleId":19,"VehicleLicence":"ZNT 567 GP","Make":"Hino","Model":"700 Series","Year":2022,"FuelType":"Diesel","OdometerReading":25366,"Active":true},{"VehicleId":20,"VehicleLicence":"BNG 890 GP","Make":"Mercedes-Benz","Model":"Actros","Year":2023,"FuelType":"Diesel","OdometerReading":11170,"Active":true}]
+[
+  {
+    "VehicleId": 1,
+    "VehicleLicence": "ZNT 123 GP",
+    "Make": "Mercedes-Benz",
+    "Model": "Actros",
+    "Year": 2023,
+    "FuelType": "Diesel",
+    "OdometerReading": 12659,
+    "Active": true
+  },
+  {
+    "VehicleId": 2,
+    "VehicleLicence": "BNG 456 GP",
+    "Make": "MAN",
+    "Model": "TGX",
+    "Year": 2021,
+    "FuelType": "Diesel",
+    "OdometerReading": 48164,
+    "Active": true
+  },
+  {
+    "VehicleId": 3,
+    "VehicleLicence": "LIM 789 GP",
+    "Make": "Scania",
+    "Model": "R-Series",
+    "Year": 2022,
+    "FuelType": "Diesel",
+    "OdometerReading": 24445,
+    "Active": true
+  },
+  {
+    "VehicleId": 4,
+    "VehicleLicence": "MPM 012 GP",
+    "Make": "Volvo",
+    "Model": "FH16",
+    "Year": 2020,
+    "FuelType": "Diesel",
+    "OdometerReading": 65539,
+    "Active": true
+  },
+  {
+    "VehicleId": 5,
+    "VehicleLicence": "KZN 345 GP",
+    "Make": "DAF",
+    "Model": "XF",
+    "Year": 2021,
+    "FuelType": "Diesel",
+    "OdometerReading": 37444,
+    "Active": true
+  },
+  {
+    "VehicleId": 6,
+    "VehicleLicence": "FSH 678 GP",
+    "Make": "Freightliner",
+    "Model": "Cascadia",
+    "Year": 2019,
+    "FuelType": "Diesel",
+    "OdometerReading": 85423,
+    "Active": true
+  },
+  {
+    "VehicleId": 7,
+    "VehicleLicence": "NC 901 GP",
+    "Make": "Isuzu",
+    "Model": "Giga",
+    "Year": 2022,
+    "FuelType": "Diesel",
+    "OdometerReading": 16031,
+    "Active": true
+  },
+  {
+    "VehicleId": 8,
+    "VehicleLicence": "EC 234 GP",
+    "Make": "Hino",
+    "Model": "500 Series",
+    "Year": 2023,
+    "FuelType": "Diesel",
+    "OdometerReading": 5000,
+    "Active": true
+  },
+  {
+    "VehicleId": 9,
+    "VehicleLicence": "WCL 567 GP",
+    "Make": "Iveco",
+    "Model": "Stralis",
+    "Year": 2021,
+    "FuelType": "Diesel",
+    "OdometerReading": 30512,
+    "Active": true
+  },
+  {
+    "VehicleId": 10,
+    "VehicleLicence": "NW 890 GP",
+    "Make": "Renault",
+    "Model": "T High",
+    "Year": 2020,
+    "FuelType": "Diesel",
+    "OdometerReading": 45473,
+    "Active": true
+  },
+  {
+    "VehicleId": 11,
+    "VehicleLicence": "MP 123 GP",
+    "Make": "Mercedes-Benz",
+    "Model": "Arocs",
+    "Year": 2022,
+    "FuelType": "Diesel",
+    "OdometerReading": 22439,
+    "Active": true
+  },
+  {
+    "VehicleId": 12,
+    "VehicleLicence": "KZN 456 GP",
+    "Make": "MAN",
+    "Model": "TGS",
+    "Year": 2023,
+    "FuelType": "Diesel",
+    "OdometerReading": 8556,
+    "Active": true
+  },
+  {
+    "VehicleId": 13,
+    "VehicleLicence": "FSH 789 GP",
+    "Make": "Scania",
+    "Model": "G-Series",
+    "Year": 2021,
+    "FuelType": "Diesel",
+    "OdometerReading": 42579,
+    "Active": true
+  },
+  {
+    "VehicleId": 14,
+    "VehicleLicence": "EC 012 GP",
+    "Make": "Volvo",
+    "Model": "FMX",
+    "Year": 2022,
+    "FuelType": "Diesel",
+    "OdometerReading": 19497,
+    "Active": true
+  },
+  {
+    "VehicleId": 15,
+    "VehicleLicence": "NW 345 GP",
+    "Make": "DAF",
+    "Model": "CF",
+    "Year": 2020,
+    "FuelType": "Diesel",
+    "OdometerReading": 38196,
+    "Active": true
+  },
+  {
+    "VehicleId": 16,
+    "VehicleLicence": "NC 678 GP",
+    "Make": "Freightliner",
+    "Model": "Coronado",
+    "Year": 2023,
+    "FuelType": "Diesel",
+    "OdometerReading": 11299,
+    "Active": true
+  },
+  {
+    "VehicleId": 17,
+    "VehicleLicence": "LIM 901 GP",
+    "Make": "Iveco",
+    "Model": "Trakker",
+    "Year": 2019,
+    "FuelType": "Diesel",
+    "OdometerReading": 70680,
+    "Active": true
+  },
+  {
+    "VehicleId": 18,
+    "VehicleLicence": "MPM 234 GP",
+    "Make": "Isuzu",
+    "Model": "C\u0026E",
+    "Year": 2021,
+    "FuelType": "Diesel",
+    "OdometerReading": 35242,
+    "Active": true
+  },
+  {
+    "VehicleId": 19,
+    "VehicleLicence": "ZNT 567 GP",
+    "Make": "Hino",
+    "Model": "700 Series",
+    "Year": 2022,
+    "FuelType": "Diesel",
+    "OdometerReading": 25366,
+    "Active": true
+  },
+  {
+    "VehicleId": 20,
+    "VehicleLicence": "BNG 890 GP",
+    "Make": "Mercedes-Benz",
+    "Model": "Actros",
+    "Year": 2023,
+    "FuelType": "Diesel",
+    "OdometerReading": 11170,
+    "Active": true
+  }
+]
